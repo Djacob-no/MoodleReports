@@ -1,5 +1,13 @@
 
-const AreaChart = () => {
+import React, { useRef } from 'react';
+
+const AreaChart = (props) => {
+
+   
+    const inputRef = useRef();
+    const number_format = props.numfunc;
+    console.log(inputRef);
+
     return (
         <div className="chart-area">
             <div className="chartjs-size-monitor">
@@ -12,7 +20,8 @@ const AreaChart = () => {
                     </div>
                 </div>
             </div>
-            <canvas id="myAreaChart" style={{"display": "block", "width": "567px", "height": "320px", "width":"567", "height":"320"}} className="chartjs-render-monitor"></canvas>
+            <canvas id="myAreaChart" ref={inputRef} style={{display: "block", width: "567px", width:"567", height:"320"}} className="chartjs-render-monitor"></canvas>
+          
         </div>
     )
 }
