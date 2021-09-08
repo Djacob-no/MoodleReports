@@ -1,15 +1,13 @@
 
 import './App.css';
-import "../node_modules/@fortawesome/fontawesome-free/css/all.css"
+import '@fortawesome/fontawesome-free/css/all.css';
 import SmallCard from './Components/SmallCard';
 import LargeCard from './Components/BarGraph';
 import FormEditor from './Components/FormEditor';
 
 function App() {
 
-  const fields = ["field1", "field2", "anotherField"];
-
-
+  
   return (
     <div id="wrapper" className="App">
       <div id="content-wrapper" className="d-flex flex-column">
@@ -27,7 +25,7 @@ function App() {
               <LargeCard data={data} options={options} />
             </div>
 
-            <FormEditor fields={fields} />;
+            <FormEditor fields={["fields"]} />;
 
           </div>
         </div>
@@ -51,7 +49,7 @@ const data = {
   labels: ['Mechanical 0', 'Electrical 0', 'Hydraulical 0', 'Novos Amphion 0', 'Cyberbase 0'],
   datasets: [{
     label: 'Passed',
-    backgroundColor: "#1cc88a",
+    backgroundColor: window.$chartColors.blue,
     borderWidth: 0,
     data: [
       5,
@@ -76,6 +74,7 @@ const data = {
 };
 
 const options = {
+  indexAxis: 'y',
   maintainAspectRatio: true,
   layout: {
     padding: {
