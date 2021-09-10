@@ -6,7 +6,11 @@ const FieldEditor = ({ value, onChange, id }) => {
   
     return (
       <div className="field-editor">
-        <input onChange={handleChange} value={value} />
+        <div> <p> NOV DSL Reports
+              </p>
+        </div>
+     
+        <input className="main-search" placeholder="Search" onChange={handleChange} value={value} />
       </div>
     );
   };

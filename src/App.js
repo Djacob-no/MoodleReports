@@ -13,6 +13,8 @@ function App() {
       <div id="content-wrapper" className="d-flex flex-column">
         <div id="content">
           <div className="container-fluid" >
+          
+          <FormEditor fields={["fields"]} />;
 
             <div className="row">
               <SmallCard icon="book" color="primary" title="Attemps Total" value="58" />
@@ -25,7 +27,6 @@ function App() {
               <LargeCard data={data} options={options} />
             </div>
 
-            <FormEditor fields={["fields"]} />;
 
           </div>
         </div>
@@ -49,7 +50,7 @@ const data = {
   labels: ['Mechanical 0', 'Electrical 0', 'Hydraulical 0', 'Novos Amphion 0', 'Cyberbase 0'],
   datasets: [{
     label: 'Passed',
-    backgroundColor: window.$chartColors.blue,
+    backgroundColor: "#fff",
     borderWidth: 0,
     data: [
       5,
