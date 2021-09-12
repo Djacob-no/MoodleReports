@@ -1,0 +1,821 @@
+[
+	{
+		"name" : "Section Review Assessment",
+		"attempt" : 1,
+		"firstname" : "dt2",
+		"lastname" : "22",
+		"Score" : 87.50000,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1603109113
+	},
+	{
+		"name" : "Test",
+		"attempt" : 1,
+		"firstname" : "dt2",
+		"lastname" : "22",
+		"Score" : 0.00000,
+		"MaxScore" : 1.00000,
+		"timefinish" : 1603109174
+	},
+	{
+		"name" : "Making Hole - Knowledge Assessment",
+		"attempt" : 1,
+		"firstname" : "Jaime",
+		"lastname" : "Barnes",
+		"Score" : null,
+		"MaxScore" : 14.00000,
+		"timefinish" : 0
+	},
+	{
+		"name" : "R&D EXAM ONLY",
+		"attempt" : 1,
+		"firstname" : "Jaime",
+		"lastname" : "Barnes",
+		"Score" : null,
+		"MaxScore" : 2.00000,
+		"timefinish" : 0
+	},
+	{
+		"name" : "Course Pre-assessment Exam",
+		"attempt" : 1,
+		"firstname" : "Jaime",
+		"lastname" : "Barnes",
+		"Score" : 37.50000,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1611075229
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Mark",
+		"lastname" : "Johanson",
+		"Score" : 79.68260,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1611339315
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Christopher",
+		"lastname" : "Andrews",
+		"Score" : 3.33400,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1611343203
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Adam",
+		"lastname" : "Gervais",
+		"Score" : 80.84950,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1611343064
+	},
+	{
+		"name" : "Online Exam Walkthrough",
+		"attempt" : 1,
+		"firstname" : "Jaime",
+		"lastname" : "Barnes",
+		"Score" : null,
+		"MaxScore" : 7.00000,
+		"timefinish" : 0
+	},
+	{
+		"name" : "Mechanical Level 0 Exam Rev.01",
+		"attempt" : 1,
+		"firstname" : "Jaime",
+		"lastname" : "Barnes",
+		"Score" : 0.00000,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1611874143
+	},
+	{
+		"name" : "Mechanical Level 0 Exam Rev.01",
+		"attempt" : 1,
+		"firstname" : "Richard",
+		"lastname" : "Key",
+		"Score" : 82.18310,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1611869656
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Ramon",
+		"lastname" : "Magallanez",
+		"Score" : 81.50000,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1612816575
+	},
+	{
+		"name" : "lockdowntest",
+		"attempt" : 1,
+		"firstname" : "Svein",
+		"lastname" : "Løken",
+		"Score" : 0.00000,
+		"MaxScore" : 5.00000,
+		"timefinish" : 1612953030
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk beskrivelse",
+		"attempt" : 1,
+		"firstname" : "Vidar",
+		"lastname" : "Kristiansen",
+		"Score" : null,
+		"MaxScore" : 30.00000,
+		"timefinish" : 0
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikeholdsinstruksjoner",
+		"attempt" : 1,
+		"firstname" : "Vidar",
+		"lastname" : "Kristiansen",
+		"Score" : null,
+		"MaxScore" : 14.00000,
+		"timefinish" : 0
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikeholdsinstruksjoner",
+		"attempt" : 1,
+		"firstname" : "Skjalg",
+		"lastname" : "Klette",
+		"Score" : null,
+		"MaxScore" : 14.00000,
+		"timefinish" : 0
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk Beskrivelse",
+		"attempt" : 1,
+		"firstname" : "Vidar",
+		"lastname" : "Kristiansen",
+		"Score" : 26.16667,
+		"MaxScore" : 28.00000,
+		"timefinish" : 1613127168
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Cody",
+		"lastname" : "DeWitt",
+		"Score" : 91.35160,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1613147832
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Jorge",
+		"lastname" : "Cantu",
+		"Score" : 79.83333,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613151293
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Eric",
+		"lastname" : "Devendorf",
+		"Score" : 67.50000,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613149525
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Robert",
+		"lastname" : "Guy",
+		"Score" : 75.50000,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613149304
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "James",
+		"lastname" : "Holifield",
+		"Score" : 56.33333,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613151747
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Jacob",
+		"lastname" : "Sentilles",
+		"Score" : 73.50000,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613152220
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "David",
+		"lastname" : "Pack",
+		"Score" : 70.50000,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613149682
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Patrick",
+		"lastname" : "Ward",
+		"Score" : 85.23927,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1613149111
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Mohammad",
+		"lastname" : "Elouri",
+		"Score" : 0.33333,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613376423
+	},
+	{
+		"name" : "test of linkingquiz",
+		"attempt" : 1,
+		"firstname" : "Daniel",
+		"lastname" : "Jacobsen",
+		"Score" : null,
+		"MaxScore" : 2.00000,
+		"timefinish" : 0
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Tony",
+		"lastname" : "Philip",
+		"Score" : 65.01300,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1613642299
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Kalikrishna",
+		"lastname" : "Sure",
+		"Score" : 78.43235,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1613645378
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Mareesh",
+		"lastname" : "Raj",
+		"Score" : 90.01800,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1613651705
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Jisso",
+		"lastname" : "Thomas",
+		"Score" : 93.35200,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1613651015
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Marvien",
+		"lastname" : "Clotario",
+		"Score" : 72.95903,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1613654066
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Anastasiia",
+		"lastname" : "Snell",
+		"Score" : 34.72917,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1613648241
+	},
+	{
+		"name" : "Mechanical Level 0 Original to Duplicate",
+		"attempt" : 1,
+		"firstname" : "Jaime",
+		"lastname" : "Barnes",
+		"Score" : null,
+		"MaxScore" : 100.02000,
+		"timefinish" : 0
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk beskrivelse",
+		"attempt" : 1,
+		"firstname" : "Torben",
+		"lastname" : "Hop",
+		"Score" : 17.66667,
+		"MaxScore" : 30.00000,
+		"timefinish" : 1613730229
+	},
+	{
+		"name" : "PODS Hydraulics Leveling Exam QA Checks",
+		"attempt" : 1,
+		"firstname" : "Gustavo",
+		"lastname" : "Nery",
+		"Score" : null,
+		"MaxScore" : 60.00000,
+		"timefinish" : 0
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk beskrivelse",
+		"attempt" : 2,
+		"firstname" : "Torben",
+		"lastname" : "Hop",
+		"Score" : 25.75000,
+		"MaxScore" : 30.00000,
+		"timefinish" : 1613732925
+	},
+	{
+		"name" : "Arbeidsoppgaver - Operasjonsinstruksjoner",
+		"attempt" : 1,
+		"firstname" : "Torben",
+		"lastname" : "Hop",
+		"Score" : 14.83333,
+		"MaxScore" : 20.00000,
+		"timefinish" : 1613733863
+	},
+	{
+		"name" : "Arbeidsoppgaver - Operasjonsinstruksjoner",
+		"attempt" : 2,
+		"firstname" : "Torben",
+		"lastname" : "Hop",
+		"Score" : 18.50000,
+		"MaxScore" : 20.00000,
+		"timefinish" : 1613734196
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikehold.",
+		"attempt" : 1,
+		"firstname" : "Torben",
+		"lastname" : "Hop",
+		"Score" : 10.66667,
+		"MaxScore" : 14.00000,
+		"timefinish" : 1613742997
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk Beskrivelse",
+		"attempt" : 1,
+		"firstname" : "Kjetil",
+		"lastname" : "Bøe",
+		"Score" : 18.83333,
+		"MaxScore" : 30.00000,
+		"timefinish" : 1613991910
+	},
+	{
+		"name" : "PODS Hydraulics Leveling Exam QA Checks",
+		"attempt" : 1,
+		"firstname" : "Jaime",
+		"lastname" : "Barnes",
+		"Score" : null,
+		"MaxScore" : 60.00000,
+		"timefinish" : 0
+	},
+	{
+		"name" : "Daniels Test",
+		"attempt" : 1,
+		"firstname" : "Daniel",
+		"lastname" : "Jacobsen",
+		"Score" : 0.00000,
+		"MaxScore" : 1.00000,
+		"timefinish" : 1613746388
+	},
+	{
+		"name" : "Daniels Test",
+		"attempt" : 2,
+		"firstname" : "Daniel",
+		"lastname" : "Jacobsen",
+		"Score" : 0.00000,
+		"MaxScore" : 1.00000,
+		"timefinish" : 1613746555
+	},
+	{
+		"name" : "Daniels Test",
+		"attempt" : 1,
+		"firstname" : "Anastasiia",
+		"lastname" : "Snell",
+		"Score" : 1.00000,
+		"MaxScore" : 1.00000,
+		"timefinish" : 1613747408
+	},
+	{
+		"name" : "Daniels Test",
+		"attempt" : 2,
+		"firstname" : "Anastasiia",
+		"lastname" : "Snell",
+		"Score" : 0.00000,
+		"MaxScore" : 1.00000,
+		"timefinish" : 1613747492
+	},
+	{
+		"name" : "Daniels Test",
+		"attempt" : 3,
+		"firstname" : "Anastasiia",
+		"lastname" : "Snell",
+		"Score" : 0.00000,
+		"MaxScore" : 1.00000,
+		"timefinish" : 1613747563
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 2,
+		"firstname" : "Anastasiia",
+		"lastname" : "Snell",
+		"Score" : 28.50570,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1613829370
+	},
+	{
+		"name" : "Arbeidsoppgaver - Operasjonsinstruksjoner (random)",
+		"attempt" : 1,
+		"firstname" : "Dag",
+		"lastname" : "Grinaker",
+		"Score" : 13.91667,
+		"MaxScore" : 20.00000,
+		"timefinish" : 1613917192
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk Beskrivelse",
+		"attempt" : 1,
+		"firstname" : "Dag",
+		"lastname" : "Grinaker",
+		"Score" : 14.66667,
+		"MaxScore" : 30.00000,
+		"timefinish" : 1613910695
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Marvien",
+		"lastname" : "Clotario",
+		"Score" : 68.00000,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613848235
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Jisso",
+		"lastname" : "Thomas",
+		"Score" : 89.33333,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613851157
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Tony",
+		"lastname" : "Philip",
+		"Score" : 78.83333,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613853535
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Kalikrishna",
+		"lastname" : "Sure",
+		"Score" : 78.83333,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613855802
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Adarsh",
+		"lastname" : "Rajeev",
+		"Score" : 25.83333,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613882805
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"attempt" : 2,
+		"firstname" : "Mohammad",
+		"lastname" : "Elouri",
+		"Score" : 0.00000,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613899503
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Audrey May",
+		"lastname" : "Ramos",
+		"Score" : 0.00000,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613900043
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Audrey May",
+		"lastname" : "Ramos",
+		"Score" : 3.33400,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1613891229
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 2,
+		"firstname" : "Audrey May",
+		"lastname" : "Ramos",
+		"Score" : 3.33400,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1613891688
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikeholdsinstruksjoner",
+		"attempt" : 1,
+		"firstname" : "Dag",
+		"lastname" : "Grinaker",
+		"Score" : 9.90476,
+		"MaxScore" : 15.00000,
+		"timefinish" : 1613992112
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Adarsh",
+		"lastname" : "Rajeev",
+		"Score" : 80.51610,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1613920706
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Harold",
+		"lastname" : "Angeles",
+		"Score" : 7.91825,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1613965230
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Harold",
+		"lastname" : "Angeles",
+		"Score" : 10.16667,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613966030
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Harold",
+		"lastname" : "Angeles",
+		"Score" : 4.00000,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1613966441
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk Beskrivelse",
+		"attempt" : 1,
+		"firstname" : "Trond",
+		"lastname" : "Larsen",
+		"Score" : 23.66667,
+		"MaxScore" : 30.00000,
+		"timefinish" : 1613993044
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikehold.",
+		"attempt" : 2,
+		"firstname" : "Torben",
+		"lastname" : "Hop",
+		"Score" : 5.33333,
+		"MaxScore" : 14.00000,
+		"timefinish" : 1613988743
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikehold.",
+		"attempt" : 3,
+		"firstname" : "Torben",
+		"lastname" : "Hop",
+		"Score" : 9.50000,
+		"MaxScore" : 14.00000,
+		"timefinish" : 1613989517
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk Beskrivelse",
+		"attempt" : 1,
+		"firstname" : "John",
+		"lastname" : "Skogheim",
+		"Score" : 15.83333,
+		"MaxScore" : 30.00000,
+		"timefinish" : 1613992729
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikehold.",
+		"attempt" : 4,
+		"firstname" : "Torben",
+		"lastname" : "Hop",
+		"Score" : 12.00000,
+		"MaxScore" : 14.00000,
+		"timefinish" : 1613989761
+	},
+	{
+		"name" : "Arbeidsoppgaver - Operasjonsinstruksjoner (random)",
+		"attempt" : 2,
+		"firstname" : "Dag",
+		"lastname" : "Grinaker",
+		"Score" : null,
+		"MaxScore" : 20.00000,
+		"timefinish" : 0
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk Beskrivelse",
+		"attempt" : 2,
+		"firstname" : "Kjetil",
+		"lastname" : "Bøe",
+		"Score" : 24.83333,
+		"MaxScore" : 30.00000,
+		"timefinish" : 1613997958
+	},
+	{
+		"name" : "Arbeidsoppgaver - Operasjonsinstruksjoner (random)",
+		"attempt" : 1,
+		"firstname" : "John",
+		"lastname" : "Skogheim",
+		"Score" : 8.50000,
+		"MaxScore" : 20.00000,
+		"timefinish" : 1613999329
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikeholdsinstruksjoner",
+		"attempt" : 1,
+		"firstname" : "John",
+		"lastname" : "Skogheim",
+		"Score" : 8.90476,
+		"MaxScore" : 15.00000,
+		"timefinish" : 1613994982
+	},
+	{
+		"name" : "Arbeidsoppgaver - Operasjonsinstruksjoner (random)",
+		"attempt" : 1,
+		"firstname" : "Kjetil",
+		"lastname" : "Bøe",
+		"Score" : 13.75000,
+		"MaxScore" : 20.00000,
+		"timefinish" : 1614005375
+	},
+	{
+		"name" : "Arbeidsoppgaver - Operasjonsinstruksjoner (random)",
+		"attempt" : 2,
+		"firstname" : "Kjetil",
+		"lastname" : "Bøe",
+		"Score" : 15.83333,
+		"MaxScore" : 20.00000,
+		"timefinish" : 1614007609
+	},
+	{
+		"name" : "lockdowntest",
+		"attempt" : 1,
+		"firstname" : "Daniel",
+		"lastname" : "Jacobsen",
+		"Score" : 1.08333,
+		"MaxScore" : 5.00000,
+		"timefinish" : 1614015512
+	},
+	{
+		"name" : "lockdowntest",
+		"attempt" : 2,
+		"firstname" : "Daniel",
+		"lastname" : "Jacobsen",
+		"Score" : 1.50000,
+		"MaxScore" : 5.00000,
+		"timefinish" : 1614696507
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikeholdsinstruksjoner",
+		"attempt" : 1,
+		"firstname" : "Kjetil",
+		"lastname" : "Bøe",
+		"Score" : 9.40476,
+		"MaxScore" : 15.00000,
+		"timefinish" : 1614075216
+	},
+	{
+		"name" : "Arbeidsoppgaver - Operasjonsinstruksjoner (random)",
+		"attempt" : 1,
+		"firstname" : "Trond",
+		"lastname" : "Larsen",
+		"Score" : 16.41667,
+		"MaxScore" : 20.00000,
+		"timefinish" : 1614085089
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikeholdsinstruksjoner",
+		"attempt" : 2,
+		"firstname" : "Kjetil",
+		"lastname" : "Bøe",
+		"Score" : 13.66667,
+		"MaxScore" : 15.00000,
+		"timefinish" : 1614079093
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikeholdsinstruksjoner",
+		"attempt" : 1,
+		"firstname" : "Trond",
+		"lastname" : "Larsen",
+		"Score" : 10.02381,
+		"MaxScore" : 15.00000,
+		"timefinish" : 1614099456
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk beskrivelse",
+		"attempt" : 1,
+		"firstname" : "Christoffer",
+		"lastname" : "Bjerkan",
+		"Score" : 23.00000,
+		"MaxScore" : 30.00000,
+		"timefinish" : 1614178626
+	},
+	{
+		"name" : "Arbeidsoppgaver - Operasjonsinstruksjoner",
+		"attempt" : 1,
+		"firstname" : "Christoffer",
+		"lastname" : "Bjerkan",
+		"Score" : 14.08333,
+		"MaxScore" : 20.00000,
+		"timefinish" : 1614181882
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikehold.",
+		"attempt" : 1,
+		"firstname" : "Christoffer",
+		"lastname" : "Bjerkan",
+		"Score" : 9.00000,
+		"MaxScore" : 14.00000,
+		"timefinish" : 1614184114
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikehold.",
+		"attempt" : 2,
+		"firstname" : "Christoffer",
+		"lastname" : "Bjerkan",
+		"Score" : 10.33333,
+		"MaxScore" : 14.00000,
+		"timefinish" : 1614184337
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"attempt" : 2,
+		"firstname" : "Tony",
+		"lastname" : "Philip",
+		"Score" : 88.25000,
+		"MaxScore" : 100.00000,
+		"timefinish" : 1614257543
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"attempt" : 1,
+		"firstname" : "Adam",
+		"lastname" : "Sowers",
+		"Score" : 86.29503,
+		"MaxScore" : 100.02000,
+		"timefinish" : 1614283858
+	},
+	{
+		"name" : "lockdowntest",
+		"attempt" : 3,
+		"firstname" : "Daniel",
+		"lastname" : "Jacobsen",
+		"Score" : 0.50000,
+		"MaxScore" : 5.00000,
+		"timefinish" : 1614696614
+	},
+	{
+		"name" : "test of linkingquiz",
+		"attempt" : 1,
+		"firstname" : "Svein",
+		"lastname" : "Løken",
+		"Score" : null,
+		"MaxScore" : 2.00000,
+		"timefinish" : 0
+	},
+	{
+		"name" : "lockdowntest",
+		"attempt" : 4,
+		"firstname" : "Daniel",
+		"lastname" : "Jacobsen",
+		"Score" : null,
+		"MaxScore" : 5.00000,
+		"timefinish" : 0
+	},
+	{
+		"name" : "lockdowntest",
+		"attempt" : 1,
+		"firstname" : "Jaime",
+		"lastname" : "Barnes",
+		"Score" : null,
+		"MaxScore" : 5.00000,
+		"timefinish" : 0
+	}
+]

@@ -4,16 +4,20 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import SmallCard from './Components/SmallCard';
 import LargeCard from './Components/BarGraph';
 import FormEditor from './Components/FormEditor';
+import usePosts from './databaseHook';
+
 
 function App() {
 
-  
+  //get data from database hook
+  const moodleData = usePosts();
+  console.log(moodleData);
+
   return (
     <div id="wrapper" className="App">
       <div id="content-wrapper" className="d-flex flex-column">
         <div id="content">
           <div className="container-fluid" >
-          
           <FormEditor fields={["fields"]} />;
 
             <div className="row">
@@ -26,7 +30,7 @@ function App() {
             <div className="row">
               <LargeCard data={data} options={options} />
             </div>
-
+            
 
           </div>
         </div>
@@ -42,8 +46,6 @@ function App() {
     
   );
 }
-
-
 
 
 const data = {
