@@ -1,19 +1,19 @@
 
 import { Bar } from 'react-chartjs-2';
-const BarGraph = (props) => {
+const BarGraph = ({exams,sortedAttempts}) => {
 
 
+  //console.log(examsFiltered);
 
-  let examNames = props.exams.map(function (e) {
+  let examNames = exams.map(function (e) {
     return e.name;
   })
-  let passCount = props.exams.map(function (e) {
+  let passCount = exams.map(function (e) {
     return e.passCount;
   })
-  let failCount = props.exams.map(function (e) {
+  let failCount = exams.map(function (e) {
     return e.failCount;
   })
-  console.log(examNames);
 
   const barData = {
     labels: examNames,

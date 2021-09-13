@@ -1,18 +1,20 @@
 
 const tdata = require("./databaseMoodle.json");
 
+
+const dataManager = (search) => {
+    
 let passingScore = 70;
 let exams =[];
 let examsObject=[];
 let sorted =[];
 let totalAttempts = tdata.length;
 
-
 //modifies tdata list and adds whether its a passed or failed attempt and a percentage score
 tdata.map(function(e){
     e.scorePercent = (e.Score/e.MaxScore)*100;
     e.passed = (e.scorePercent >= passingScore ? true : false);
-    if(exams.indexOf(e.name) == -1){
+    if(exams.indexOf(e.name) === -1){
         exams.push(e.name);
         sorted.push([]);
     }
@@ -24,7 +26,8 @@ tdata.map(function(e){
     sorted[sortIndex].push(e);
 })
 
-
+//creates the  examsObject with each exam and how many passed or failed 
+//that exam based on the passingScore variable
 for(let i=0;i<sorted.length;i++){
     let passCount = 0;
     let failCount = 0;
@@ -37,9 +40,10 @@ for(let i=0;i<sorted.length;i++){
     }
     examsObject.push({"name": name, "passCount":passCount,"failCount":failCount});
 }
-//console.log(examsObject);
-//console.log(sorted[5])
-//console.log(sorted[8]);
 
-export {examsObject,sorted,totalAttempts}
+    return {"passingScore":passingScore, "examsOverview":examsObject, "examData":sorted, "totalAttempts":totalAttempts}
+}
+
+export default dataManager
+//export {examsObject,sorted,totalAttempts}
 

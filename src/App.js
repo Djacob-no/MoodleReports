@@ -2,10 +2,10 @@
 import './App.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import SmallCard from './Components/SmallCard';
-import LargeCard from './Components/BarGraph';
+import BarGraph from './Components/BarGraph';
 import FormEditor from './Components/FormEditor';
-import usePosts from './databaseHook';
-import {examsObject, sorted, totalAttempts} from './dataManager.js';
+import usePosts from './Hooks/databaseHook';
+import dataManager from './Hooks/dataManager.js';
 import React, { useState } from 'react';
 
 function App() {
@@ -13,9 +13,15 @@ function App() {
   //get data from database hook
   //const moodleData = usePosts();
   
-  //SeachBar stuff
+  
+  //SearchBar stuff
   const [state, setState] = useState({"searchField": "Search"});
-  const searchUpdate = (value) => {setState({"searchField":value})};
+  const searchUpdate = (value) => {
+    setState(
+      dataManager(value)
+    )
+    console.log(state)
+  };
   //console.log(seachField);
 
 
@@ -29,14 +35,14 @@ function App() {
           <FormEditor fields={["seachField"]} searchUpdate={searchUpdate} />;
 
             <div className="row">
-              <SmallCard icon="book" color="primary" title="Attemps Total" value={totalAttempts} />
+              <SmallCard icon="book" color="primary" title="Attemps Total" value="91" />
               <SmallCard icon="address-card" color="info" title="Final Grades" value="45" />
               <SmallCard icon="check-circle" color="success" title="Passed Attempts" value="{passCount.length}" />
               <SmallCard icon="times-circle" color="danger" title="Failed Attempts" value="{failCount.length}" />
             </div>
 
             <div className="row">
-              <LargeCard exams={examsObject} sortedAttempts={sorted} searchUpdate={searchUpdate} />
+              <BarGraph exams={state.examsOverview} sortedAttempts={state.examData}  />
             </div>
             
 
