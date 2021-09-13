@@ -2,10 +2,11 @@ import SearchBar from './SearchBar';
 import React, { useState } from 'react';
 
 
-const FormEditor = ({field}) => {
-    const [values, setValues] = useState({});
-    const handleFieldChange = (fieldId, value) => {
-      setValues({ ...values, [fieldId]: value });
+const FormEditor = ({field, searchUpdate}) => {
+    const [yo, setyo] = useState("Search");
+    const handleFieldChange = ( value) => {
+      setyo(value);
+      searchUpdate(value);
     };
   
   
@@ -14,11 +15,11 @@ const FormEditor = ({field}) => {
       <div>
          <SearchBar
         key={field}
-        id={field}
+        id={"field"}
         onChange={handleFieldChange}
-        value={values[field]}
+        value={yo}
       />
-        <pre>{JSON.stringify(values, null, 2)}</pre>
+        <pre>{JSON.stringify(yo)}</pre>
       </div>
     );
   };

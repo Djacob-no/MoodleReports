@@ -1,7 +1,7 @@
 const FieldEditor = ({ value, onChange, id }) => {
     const handleChange = event => {
       const text = event.target.value;
-      onChange(id, text);
+      onChange(text);
     };
   
     return (

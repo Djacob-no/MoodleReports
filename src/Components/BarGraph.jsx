@@ -2,6 +2,85 @@
 import { Bar } from 'react-chartjs-2';
 const BarGraph = (props) => {
 
+
+
+  let examNames = props.exams.map(function (e) {
+    return e.name;
+  })
+  let passCount = props.exams.map(function (e) {
+    return e.passCount;
+  })
+  let failCount = props.exams.map(function (e) {
+    return e.failCount;
+  })
+  console.log(examNames);
+
+  const barData = {
+    labels: examNames,
+    datasets: [{
+      label: 'Passed',
+      backgroundColor: "#fff",
+      borderWidth: 0,
+      data: passCount
+    },
+    {
+      label: 'Failed',
+      backgroundColor: "#da291c",
+      borderWidth: 0,
+      data: failCount
+    }]
+  };
+  const barOptions = {
+    indexAxis: 'y',
+    maintainAspectRatio: true,
+    layout: {
+      padding: {
+        left: 10,
+        right: 25,
+        top: 25,
+        bottom: 0
+      }
+    },
+    scales: {
+      xAxes: [{
+        stacked: true,
+        time: {
+          unit: 'month'
+        },
+        gridLines: {
+          display: false,
+          drawBorder: false
+        },
+        ticks: {
+          maxTicksLimit: 6
+        },
+        maxBarThickness: 25,
+      }],
+      yAxes: [{
+        stacked: true,
+        ticks: {
+          min: 0,
+          max: 20,
+          maxTicksLimit: 5,
+          padding: 10,
+          /*/ Include a dollar sign in the ticks
+          callback: function(value, index, values) {
+            return '$' + number_format(value);
+          }*/
+        },
+        gridLines: {
+          drawBorder: false,
+          borderDash: [2],
+          zeroLineBorderDash: [2]
+        }
+      }],
+    },
+    legend: {
+      display: true
+    },
+
+  };
+
   return (
     <div className="col-xl-8 col-lg-12">
       <div className="card shadow mb-4">
@@ -27,7 +106,7 @@ const BarGraph = (props) => {
 
             </div>
           </div>
-          <Bar data={props.data} options={props.options} />
+          <Bar data={barData} options={barOptions} />
 
 
 
