@@ -2,15 +2,29 @@
 const tdata = require("./databaseMoodle.json");
 
 
-const dataManager = (search) => {
-    
+const dataManager = () => {
+    let searchInput = "Level"
 let passingScore = 70;
 let exams =[];
 let examsObject=[];
 let sorted =[];
-let totalAttempts = tdata.length;
+const totalAttempts = tdata.length;
+/*
+const fta = () =>{
+    let counter = 0;
+    tdata.filter(e => {
+        if(e.name.search(searchInput) !== -1){
+            counter++
+        }
+    });
+    console.log(counter);
+    return counter
+}
+console.log(fta());
+*/
 
 //modifies tdata list and adds whether its a passed or failed attempt and a percentage score
+//also creates the exams array used in the sorting function below
 tdata.map(function(e){
     e.scorePercent = (e.Score/e.MaxScore)*100;
     e.passed = (e.scorePercent >= passingScore ? true : false);
@@ -41,9 +55,22 @@ for(let i=0;i<sorted.length;i++){
     examsObject.push({"name": name, "passCount":passCount,"failCount":failCount});
 }
 
-    return {"passingScore":passingScore, "examsOverview":examsObject, "examData":sorted, "totalAttempts":totalAttempts}
-}
 
-export default dataManager
+//use the global search input to filter all returned objects 
+const f_sorted = sorted.filter(e => {
+    let collecter = [];
+    for(let i=0;i<e.length;i++){
+            if(e[i].name.search(searchInput) != -1){
+                collecter.push(e[i]) 
+            }
+    }
+    return collecter;
+})
+//console.log(f_sorted);
+
+    return {"passingScore":passingScore, "examsOverview":examsObject, "examData":f_sorted, "totalAttempts":totalAttempts}
+}
+dataManager()
+//export default dataManager
 //export {examsObject,sorted,totalAttempts}
 
