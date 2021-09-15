@@ -5,8 +5,6 @@ const tdata = require("./databaseMoodle.json");
 const dataManager = (searchInput) => {
     //filter data in by global seach
     const fdata = tdata.filter(e => {
-        const dateformat = new Date(e.timefinish).toLocaleDateString()
-        console.log(e.timefinish);
         if (e.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1) { return e }
     });
     const passingScore = 80; //input variable
@@ -22,6 +20,7 @@ const dataManager = (searchInput) => {
     fdata.map(function (e) {
         e.scorePercent = (e.Score / e.MaxScore) * 100;
         e.passed = (e.scorePercent >= passingScore ? true : false);
+        e.dateFormat = new Date(e.timefinish *1000).toLocaleDateString();
         if (exams.indexOf(e.name) === -1) {
             exams.push(e.name);
             sorted.push([]);
@@ -29,17 +28,16 @@ const dataManager = (searchInput) => {
 
     });
 
-     //returnes object with 2 arrays one being months of the year and 2 being number of attempts that month
+     //returns array 12 numbers corresponding to each month and amount of attempts that month
     const montlyAttempts =(() => {
-        let months =[];
-        let attemptsM =[];
+        let attemptsM =[0,0,0,0,0,0,0,0,0,0,0,0];
         for(let i=0;i<fdata.length;i++){
-           let eMonth = new Date(fdata[i].timefinish).toLocaleDateString('en-us', {  month:"long"});
-           if(months.indexOf(eMonth) === -1) months.push(eMonth);
+           let eMonth = new Date(fdata[i].timefinish *1000);
+           attemptsM[eMonth.getMonth()]++ 
         }
-        return {"months":months, "attempts":attemptsM}
+        return attemptsM
       })();
-      //console.log(montlyAttempts)
+      
 
     //sorts the tdata object into an array(sorted[]) that contains arrays of each exams results. 
     fdata.map(function (e) {
@@ -74,9 +72,9 @@ const dataManager = (searchInput) => {
         if (p === "fail") return failStack ;
     }
 
-    return { "passingScore": passingScore, "examsOverview": examsObject, "examData": sorted, "totalAttempts": totalAttempts, "passCountFunction": passCount }
+    return {"monthlyAttempts":montlyAttempts, "passingScore": passingScore, "examsOverview": examsObject, "examData": sorted, "totalAttempts": totalAttempts, "passCountFunction": passCount }
 }
-console.log(dataManager("electrical"))
 
-//export default dataManager
+
+export default dataManager
 
