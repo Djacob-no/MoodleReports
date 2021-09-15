@@ -1,4 +1,4 @@
-const FieldEditor = ({ value, onChange, id }) => {
+const FieldEditor = ({ onChange}) => {
     const handleChange = event => {
       const text = event.target.value;
       onChange(text);
@@ -10,7 +10,7 @@ const FieldEditor = ({ value, onChange, id }) => {
               </p>
         </div>
      
-        <input className="main-search" placeholder="Search" onChange={handleChange} value={value} />
+        <input className="main-search" placeholder="Search" onChange={handleChange}  />
       </div>
     );
   };

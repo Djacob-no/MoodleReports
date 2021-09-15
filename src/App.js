@@ -3,10 +3,10 @@ import './App.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import SmallCard from './Components/SmallCard';
 import BarGraph from './Components/BarGraph';
-import FormEditor from './Components/FormEditor';
 import usePosts from './Hooks/databaseHook';
 import dataManager from './Hooks/dataManager.js';
 import React, { useState } from 'react';
+import SearchBar from './Components/SearchBar';
 
 function App() {
 
@@ -14,31 +14,32 @@ function App() {
   //const moodleData = usePosts();
   
   
-  //SearchBar stuff
-  const [state, setState] = useState({"searchField": "Search"});
+  //SearchBar inputs, trigger datamanager to update app state with filtered database data
+  const [state, setState] = useState({"totalAttempts": 0});
   const searchUpdate = (value) => {
     setState(
       dataManager(value)
     )
-    console.log(state)
   };
-  //console.log(seachField);
+ 
 
-
-  
 
   return (
     <div id="wrapper" className="App">
       <div id="content-wrapper" className="d-flex flex-column">
         <div id="content">
           <div className="container-fluid" >
-          <FormEditor fields={["seachField"]} searchUpdate={searchUpdate} />;
+         
+
+            <div>
+              <SearchBar onChange={searchUpdate} />
+            </div>
 
             <div className="row">
-              <SmallCard icon="book" color="primary" title="Attemps Total" value="91" />
+              <SmallCard icon="book" color="primary" title="Attemps Total" value={state.totalAttempts} />
               <SmallCard icon="address-card" color="info" title="Final Grades" value="45" />
-              <SmallCard icon="check-circle" color="success" title="Passed Attempts" value="{passCount.length}" />
-              <SmallCard icon="times-circle" color="danger" title="Failed Attempts" value="{failCount.length}" />
+              <SmallCard icon="check-circle" color="success" title="Passed Attempts" value={state.passCountFunction ? state.passCountFunction("pass") : "0"} />
+              <SmallCard icon="times-circle" color="danger" title="Failed Attempts" value={state.passCountFunction ? state.passCountFunction("fail") : "0"} />
             </div>
 
             <div className="row">
