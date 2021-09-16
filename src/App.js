@@ -7,6 +7,7 @@ import usePosts from './Hooks/databaseHook';
 import dataManager from './Hooks/dataManager.js';
 import React, { useState } from 'react';
 import SearchBar from './Components/SearchBar';
+import LineGraph from './Components/LineGraph';
 
 function App() {
 

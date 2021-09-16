@@ -3,6 +3,7 @@ const tdata = require("./databaseMoodle.json");
 //console.log(tdata);
 
 const dataManager = (searchInput) => {
+    
     //filter data in by global seach
     const fdata = tdata.filter(e => {
         if (e.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1) { return e }
@@ -20,13 +21,13 @@ const dataManager = (searchInput) => {
     fdata.map(function (e) {
         e.scorePercent = (e.Score / e.MaxScore) * 100;
         e.passed = (e.scorePercent >= passingScore ? true : false);
-        e.dateFormat = new Date(e.timefinish *1000).toLocaleDateString();
+        e.dateFormat = new Date(e.timefinish *1000);
         if (exams.indexOf(e.name) === -1) {
             exams.push(e.name);
             sorted.push([]);
         }
-
     });
+   
 
      //returns array 12 numbers corresponding to each month and amount of attempts that month
     const montlyAttempts =(() => {
@@ -37,7 +38,6 @@ const dataManager = (searchInput) => {
         }
         return attemptsM
       })();
-      
 
     //sorts the tdata object into an array(sorted[]) that contains arrays of each exams results. 
     fdata.map(function (e) {
@@ -74,7 +74,6 @@ const dataManager = (searchInput) => {
 
     return {"monthlyAttempts":montlyAttempts, "passingScore": passingScore, "examsOverview": examsObject, "examData": sorted, "totalAttempts": totalAttempts, "passCountFunction": passCount }
 }
-
 
 export default dataManager
 
