@@ -2,15 +2,32 @@
 import { Line } from 'react-chartjs-2';
 const LineGraph = ({exams,sortedAttempts}) => {
 
+  //if statement to return something only if user has searched for something. Else dont show diagram
+  if(exams){
+  const months = ['jan','feb','mar','apr','may','jun','jul','aug','sep','nov','dec'];
   const data = {
-    labels: ['1', '2', '3', '4', '5', '6'],
+    labels: months,
     datasets: [
       {
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Passed',
+        data: exams.passedAttempts,
         fill: false,
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgba(255, 99, 132, 0.2)',
+        backgroundColor: '#1cc88a',
+        borderColor: '#1cc88a',
+      },
+      {
+        label: 'Failed',
+        data: exams.failedAttempts,
+        fill: false,
+        backgroundColor: '#e74a3b',
+        borderColor: '#e74a3b',
+      },
+      {
+        label: 'Total',
+        data: exams.totalAttempts,
+        fill: false,
+        backgroundColor: '#36b9cc',
+        borderColor: '#36b9cc',
       },
     ],
   };
@@ -27,7 +44,7 @@ const LineGraph = ({exams,sortedAttempts}) => {
     },
   };
   
-    if(exams){
+  
   
     return (
       <div className="col-xl-8 col-lg-12">

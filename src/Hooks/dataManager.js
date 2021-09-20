@@ -2,12 +2,30 @@
 const tdata = require("./databaseMoodle.json");
 //console.log(tdata);
 
-const dataManager = (searchInput) => {
-    
-    //filter data in by global seach
+const dataManager = (searchInput, timeFilter) => {
+
+    //filter data in by global seach and time
     const fdata = tdata.filter(e => {
-        if (e.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1) { return e }
+        if (e.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1) {
+            const date = new Date(e.timefinish * 1000);
+            var examDate= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
+            let dateFrom = timeFilter.from;
+            let dateTo = timeFilter.to;
+
+            let d1 = dateFrom.split("/");
+            let d2 = dateTo.split("/");
+            let c = examDate.split("/");
+
+            let from = new Date(d1);  // -1 because months are from 0 to 11
+            let to = new Date(d2);
+            let checkdate = new Date(c);
+
+            if (checkdate > from && checkdate < to) {
+                return e
+            }
+        }
     });
+
     const passingScore = 80; //input variable
     const exams = []; //temporary storage
     const examsObject = []; //returned object
@@ -15,29 +33,34 @@ const dataManager = (searchInput) => {
     const totalAttempts = fdata.length; //returned number
 
 
-
     //modifies tdata list and adds whether its a passed or failed attempt and a percentage score
     //also creates the exams array used in the sorting function below
     fdata.map(function (e) {
         e.scorePercent = (e.Score / e.MaxScore) * 100;
         e.passed = (e.scorePercent >= passingScore ? true : false);
-        e.dateFormat = new Date(e.timefinish *1000);
+        e.dateFormat = new Date(e.timefinish * 1000);
         if (exams.indexOf(e.name) === -1) {
             exams.push(e.name);
             sorted.push([]);
         }
     });
-   
 
-     //returns array 12 numbers corresponding to each month and amount of attempts that month
-    const montlyAttempts =(() => {
-        let attemptsM =[0,0,0,0,0,0,0,0,0,0,0,0];
-        for(let i=0;i<fdata.length;i++){
-           let eMonth = new Date(fdata[i].timefinish *1000);
-           attemptsM[eMonth.getMonth()]++ 
+
+    //returns array 12 numbers corresponding to each month and amount of attempts that month
+    const montlyAttempts = (() => {
+        let attemptsM = {
+            "totalAttempts": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            "passedAttempts": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            "failedAttempts": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        };
+        for (let i = 0; i < fdata.length; i++) {
+            let eMonth = new Date(fdata[i].timefinish * 1000);
+            attemptsM.totalAttempts[eMonth.getMonth()]++;
+            if (fdata[i].passed === true) attemptsM.passedAttempts[eMonth.getMonth()]++;
+            if (fdata[i].passed === false) attemptsM.failedAttempts[eMonth.getMonth()]++;
         }
         return attemptsM
-      })();
+    })();
 
     //sorts the tdata object into an array(sorted[]) that contains arrays of each exams results. 
     fdata.map(function (e) {
@@ -57,22 +80,22 @@ const dataManager = (searchInput) => {
                 passCount++
             } else failCount++;
         }
-        examsObject.push({ "name": name, "passCount": passCount, "failCount": failCount });
+        examsObject.push({ "name": name, "passCount": passCount, "failCount": failCount, "failPercent": failCount / (passCount + failCount) });
     }
 
     //count up all passed/failed attempts from all exams in the examsOverview object and give them to whomever is asking
     const passCount = (p) => {
         let passStack = 0,
             failStack = 0;
-            for (let i = 0; i < examsObject.length; i++) {
-                passStack += examsObject[i].passCount;
-                failStack += examsObject[i].failCount;
-            }
-        if (p === "pass") return passStack ;
-        if (p === "fail") return failStack ;
+        for (let i = 0; i < examsObject.length; i++) {
+            passStack += examsObject[i].passCount;
+            failStack += examsObject[i].failCount;
+        }
+        if (p === "pass") return passStack;
+        if (p === "fail") return failStack;
     }
 
-    return {"monthlyAttempts":montlyAttempts, "passingScore": passingScore, "examsOverview": examsObject, "examData": sorted, "totalAttempts": totalAttempts, "passCountFunction": passCount }
+    return { "monthlyAttempts": montlyAttempts, "passingScore": passingScore, "examsOverview": examsObject, "examData": sorted, "totalAttempts": totalAttempts, "passCountFunction": passCount }
 }
 
 export default dataManager
