@@ -18,14 +18,17 @@ function App() {
 
   //SearchBar inputs, trigger datamanager to update app state with filtered database data
   const [state, setState] = useState({ "totalAttempts": 0 });
+  const searchTerm = ""
+  const time =""
   const searchUpdate = (search) => {
+    searchTerm = search;
     setState(
-      dataManager(search, {"from":"01/01/2019","to":"12/22/2022"})
+      dataManager(searchTerm, {"from":"01/01/2019","to":"12/22/2022"})
     )
   };
   const timeFilter = (e) =>{
-   
-  }
+   if(e)
+  };
 
 
 
@@ -38,9 +41,9 @@ function App() {
 
             <div className="row">
               <span>Filter By</span>
-              <button type="button" onChange={timeFilter} className="btn btn-light">Month</button>
-              <button type="button" onChange={timeFilter} className="btn btn-secondary">Year</button>
-              <button type="button" onChange={timeFilter} className="btn btn-primary">All Time</button>
+              <button type="button" onClick={time = "month"} className="btn btn-light">Month</button>
+              <button type="button" onClick={time = "year"} className="btn btn-secondary">Year</button>
+              <button type="button" onClick={time = "all"} className="btn btn-primary">All Time</button>
             </div>
 
             <div className="row">
