@@ -17,18 +17,21 @@ function App() {
 
 
   //SearchBar inputs, trigger datamanager to update app state with filtered database data
-  const [state, setState] = useState({ "totalAttempts": 0 });
-  const searchTerm = ""
-  const time =""
+  const [timeframe, setTimeframe] = useState("all");
+  const [stateDB, setDBState] = useState({ "totalAttempts": 0 });
+  let searchTerm = "";
+  let timeFilter = "";
   const searchUpdate = (search) => {
-    searchTerm = search;
-    setState(
-      dataManager(searchTerm, {"from":"01/01/2019","to":"12/22/2022"})
-    )
+    if (search)searchTerm = search;
+    setDBState(dataManager(searchTerm, timeFilter))
   };
-  const timeFilter = (e) =>{
-   if(e)
+  const timeUpdate = (t) => {
+    timeFilter = t;
+    setTimeframe(timeFilter);
+    searchUpdate();
   };
+ 
+
 
 
 
@@ -39,11 +42,10 @@ function App() {
           <div className="container-fluid" >
 
 
-            <div className="row">
-              <span>Filter By</span>
-              <button type="button" onClick={time = "month"} className="btn btn-light">Month</button>
-              <button type="button" onClick={time = "year"} className="btn btn-secondary">Year</button>
-              <button type="button" onClick={time = "all"} className="btn btn-primary">All Time</button>
+            <div className="row" id="btnRow">
+              <button type="button" onClick={() => timeUpdate("month")} className="btn btn-primary">Month</button>
+              <button type="button" onClick={() => timeUpdate("year")} className="btn btn-primary">Year</button>
+              <button type="button" onClick={() => timeUpdate("all")} className="btn btn-primary">All Time</button>
             </div>
 
             <div className="row">
@@ -53,16 +55,16 @@ function App() {
             </div>
 
             <div className="row">
-              <SmallCard icon="book" color="primary" title="Attemps Total" value={state.totalAttempts} />
+              <SmallCard icon="book" color="primary" title="Attemps Total" value={stateDB.totalAttempts} />
               <SmallCard icon="address-card" color="info" title="Final Grades" value="45" />
-              <SmallCard icon="check-circle" color="success" title="Passed Attempts" value={state.passCountFunction ? state.passCountFunction("pass") : "0"} />
-              <SmallCard icon="times-circle" color="danger" title="Failed Attempts" value={state.passCountFunction ? state.passCountFunction("fail") : "0"} />
+              <SmallCard icon="check-circle" color="success" title="Passed Attempts" value={stateDB.passCountFunction ? stateDB.passCountFunction("pass") : "0"} />
+              <SmallCard icon="times-circle" color="danger" title="Failed Attempts" value={stateDB.passCountFunction ? stateDB.passCountFunction("fail") : "0"} />
             </div>
 
             <div className="row">
-              <LineGraph exams={state.monthlyAttempts} />
-              <BarGraph exams={state.examsOverview} sortedAttempts={state.examData} />
-              <BarGraph_failpercent exams={state.examsOverview} />
+              <LineGraph exams={stateDB.monthlyAttempts} timeframe={timeframe} examDataRaw={stateDB.examDataRaw}/>
+              <BarGraph exams={stateDB.examsOverview} sortedAttempts={stateDB.examData} />
+              <BarGraph_failpercent exams={stateDB.examsOverview} />
             </div>
 
 

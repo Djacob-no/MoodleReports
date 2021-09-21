@@ -1,16 +1,36 @@
 
 const tdata = require("./databaseMoodle.json");
+const gradeData = require("./grades.json");
 //console.log(tdata);
 
-const dataManager = (searchInput, timeFilter) => {
+const dataManager = (searchInput,time) => {
 
-    //filter data in by global seach and time
+    //create from and to timeframe for retrieving data
+    function timeFilter() {
+        const now = new Date();
+        let tempfrom = now;
+        let to = (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
+        switch (time) {
+            case "month":
+                tempfrom.setMonth(tempfrom.getMonth() - 1);
+                break;
+            case "year":
+                tempfrom.setFullYear(tempfrom.getFullYear() - 1);
+                break;
+            default:
+                tempfrom.setFullYear(tempfrom.getFullYear() - 30);
+                break;
+        }
+        let from = (tempfrom.getMonth() + 1) + '/' + tempfrom.getDate() + '/' + tempfrom.getFullYear();
+        return { "from": from, "to": to }
+    }
+    //filter data in by global search and time
     const fdata = tdata.filter(e => {
         if (e.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1) {
             const date = new Date(e.timefinish * 1000);
-            var examDate= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
-            let dateFrom = timeFilter.from;
-            let dateTo = timeFilter.to;
+            var examDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+            let dateFrom = timeFilter().from;
+            let dateTo = timeFilter().to;
 
             let d1 = dateFrom.split("/");
             let d2 = dateTo.split("/");
@@ -83,7 +103,7 @@ const dataManager = (searchInput, timeFilter) => {
         examsObject.push({ "name": name, "passCount": passCount, "failCount": failCount, "failPercent": failCount / (passCount + failCount) });
     }
 
-    //count up all passed/failed attempts from all exams in the examsOverview object and give them to whomever is asking
+    //count up all passed/failed attempts from all exams in the examsOverview object 
     const passCount = (p) => {
         let passStack = 0,
             failStack = 0;
@@ -95,8 +115,7 @@ const dataManager = (searchInput, timeFilter) => {
         if (p === "fail") return failStack;
     }
 
-    return { "monthlyAttempts": montlyAttempts, "passingScore": passingScore, "examsOverview": examsObject, "examData": sorted, "totalAttempts": totalAttempts, "passCountFunction": passCount }
+    return { "monthlyAttempts": montlyAttempts, "passingScore": passingScore, "examsOverview": examsObject,"examDataRaw": fdata, "examData": sorted, "totalAttempts": totalAttempts, "passCountFunction": passCount }
 }
 
 export default dataManager
-

@@ -246,7 +246,9 @@ label {
   display: inline-block;
   margin-bottom: 0.5rem;
 }
-
+#btnRow button{
+  margin: 4px;
+}
 button {
   border-radius: 0;
 }

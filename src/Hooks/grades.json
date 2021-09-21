@@ -1,0 +1,401 @@
+[
+	{
+		"name" : "Section Review Assessment",
+		"firstname" : "dt2",
+		"lastname" : "22",
+		"grade" : 87.50000,
+		"timemodified" : 1603109113
+	},
+	{
+		"name" : "Test",
+		"firstname" : "dt2",
+		"lastname" : "22",
+		"grade" : 0.00000,
+		"timemodified" : 1603109175
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"firstname" : "Mark",
+		"lastname" : "Johanson",
+		"grade" : 79.66667,
+		"timemodified" : 1611587348
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"firstname" : "Adam",
+		"lastname" : "Gervais",
+		"grade" : 80.83333,
+		"timemodified" : 1611343065
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"firstname" : "Christopher",
+		"lastname" : "Andrews",
+		"grade" : 3.33333,
+		"timemodified" : 1611343203
+	},
+	{
+		"name" : "Mechanical Level 0 Exam Rev.01",
+		"firstname" : "Richard",
+		"lastname" : "Key",
+		"grade" : 82.16667,
+		"timemodified" : 1611869656
+	},
+	{
+		"name" : "Mechanical Level 0 Exam Rev.01",
+		"firstname" : "Jaime",
+		"lastname" : "Barnes",
+		"grade" : 0.00000,
+		"timemodified" : 1611874143
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"firstname" : "Ramon",
+		"lastname" : "Magallanez",
+		"grade" : 81.50000,
+		"timemodified" : 1612816575
+	},
+	{
+		"name" : "lockdowntest",
+		"firstname" : "Svein",
+		"lastname" : "Løken",
+		"grade" : 0.00000,
+		"timemodified" : 1612953030
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"firstname" : "Cody",
+		"lastname" : "DeWitt",
+		"grade" : 91.33333,
+		"timemodified" : 1613147832
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"firstname" : "Patrick",
+		"lastname" : "Ward",
+		"grade" : 85.22223,
+		"timemodified" : 1613149111
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"firstname" : "Robert",
+		"lastname" : "Guy",
+		"grade" : 75.50000,
+		"timemodified" : 1613149304
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"firstname" : "Eric",
+		"lastname" : "Devendorf",
+		"grade" : 67.50000,
+		"timemodified" : 1613149525
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"firstname" : "David",
+		"lastname" : "Pack",
+		"grade" : 70.50000,
+		"timemodified" : 1613149683
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"firstname" : "Jorge",
+		"lastname" : "Cantu",
+		"grade" : 79.83333,
+		"timemodified" : 1613151293
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"firstname" : "James",
+		"lastname" : "Holifield",
+		"grade" : 56.33333,
+		"timemodified" : 1613151748
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"firstname" : "Jacob",
+		"lastname" : "Sentilles",
+		"grade" : 73.50000,
+		"timemodified" : 1613152220
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"firstname" : "Mohammad",
+		"lastname" : "Elouri",
+		"grade" : 0.33333,
+		"timemodified" : 1613899503
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"firstname" : "Tony",
+		"lastname" : "Philip",
+		"grade" : 65.00000,
+		"timemodified" : 1613642300
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"firstname" : "Kalikrishna",
+		"lastname" : "Sure",
+		"grade" : 78.41667,
+		"timemodified" : 1613645378
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"firstname" : "Anastasiia",
+		"lastname" : "Snell",
+		"grade" : 34.72223,
+		"timemodified" : 1613829370
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"firstname" : "Jisso",
+		"lastname" : "Thomas",
+		"grade" : 93.33333,
+		"timemodified" : 1613651015
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"firstname" : "Mareesh",
+		"lastname" : "Raj",
+		"grade" : 90.00000,
+		"timemodified" : 1613651705
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"firstname" : "Marvien",
+		"lastname" : "Clotario",
+		"grade" : 72.94444,
+		"timemodified" : 1613654066
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk beskrivelse",
+		"firstname" : "Torben",
+		"lastname" : "Hop",
+		"grade" : 85.83333,
+		"timemodified" : 1613732925
+	},
+	{
+		"name" : "Arbeidsoppgaver - Operasjonsinstruksjoner",
+		"firstname" : "Torben",
+		"lastname" : "Hop",
+		"grade" : 92.50000,
+		"timemodified" : 1613734196
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikehold.",
+		"firstname" : "Torben",
+		"lastname" : "Hop",
+		"grade" : 85.71429,
+		"timemodified" : 1613989762
+	},
+	{
+		"name" : "Daniels Test",
+		"firstname" : "Daniel",
+		"lastname" : "Jacobsen",
+		"grade" : 0.00000,
+		"timemodified" : 1613746555
+	},
+	{
+		"name" : "Daniels Test",
+		"firstname" : "Anastasiia",
+		"lastname" : "Snell",
+		"grade" : 100.00000,
+		"timemodified" : 1613747563
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"firstname" : "Marvien",
+		"lastname" : "Clotario",
+		"grade" : 68.00000,
+		"timemodified" : 1613848235
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"firstname" : "Jisso",
+		"lastname" : "Thomas",
+		"grade" : 89.33333,
+		"timemodified" : 1613851157
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"firstname" : "Tony",
+		"lastname" : "Philip",
+		"grade" : 88.25000,
+		"timemodified" : 1614257544
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"firstname" : "Kalikrishna",
+		"lastname" : "Sure",
+		"grade" : 78.83333,
+		"timemodified" : 1613855802
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"firstname" : "Adarsh",
+		"lastname" : "Rajeev",
+		"grade" : 25.83333,
+		"timemodified" : 1613882805
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"firstname" : "Audrey May",
+		"lastname" : "Ramos",
+		"grade" : 3.33333,
+		"timemodified" : 1613891688
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"firstname" : "Audrey May",
+		"lastname" : "Ramos",
+		"grade" : 0.00000,
+		"timemodified" : 1613900043
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk Beskrivelse",
+		"firstname" : "Dag",
+		"lastname" : "Grinaker",
+		"grade" : 4.88889,
+		"timemodified" : 1613910695
+	},
+	{
+		"name" : "Arbeidsoppgaver - Operasjonsinstruksjoner (random)",
+		"firstname" : "Dag",
+		"lastname" : "Grinaker",
+		"grade" : 69.58335,
+		"timemodified" : 1613917192
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"firstname" : "Adarsh",
+		"lastname" : "Rajeev",
+		"grade" : 80.50000,
+		"timemodified" : 1613920706
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"firstname" : "Harold",
+		"lastname" : "Angeles",
+		"grade" : 7.91667,
+		"timemodified" : 1613965230
+	},
+	{
+		"name" : "Hydraulics Level 0 Exam",
+		"firstname" : "Harold",
+		"lastname" : "Angeles",
+		"grade" : 10.16667,
+		"timemodified" : 1613966031
+	},
+	{
+		"name" : "Electrical Level 0 Exam",
+		"firstname" : "Harold",
+		"lastname" : "Angeles",
+		"grade" : 4.00000,
+		"timemodified" : 1613966441
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk Beskrivelse",
+		"firstname" : "Kjetil",
+		"lastname" : "Bøe",
+		"grade" : 8.27778,
+		"timemodified" : 1613997958
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikeholdsinstruksjoner",
+		"firstname" : "Dag",
+		"lastname" : "Grinaker",
+		"grade" : 6.60317,
+		"timemodified" : 1613992112
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk Beskrivelse",
+		"firstname" : "John",
+		"lastname" : "Skogheim",
+		"grade" : 5.27778,
+		"timemodified" : 1613992729
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk Beskrivelse",
+		"firstname" : "Trond",
+		"lastname" : "Larsen",
+		"grade" : 7.88889,
+		"timemodified" : 1613993044
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikeholdsinstruksjoner",
+		"firstname" : "John",
+		"lastname" : "Skogheim",
+		"grade" : 5.93651,
+		"timemodified" : 1613994982
+	},
+	{
+		"name" : "Arbeidsoppgaver - Operasjonsinstruksjoner (random)",
+		"firstname" : "John",
+		"lastname" : "Skogheim",
+		"grade" : 42.50000,
+		"timemodified" : 1613999330
+	},
+	{
+		"name" : "Arbeidsoppgaver - Operasjonsinstruksjoner (random)",
+		"firstname" : "Kjetil",
+		"lastname" : "Bøe",
+		"grade" : 79.16665,
+		"timemodified" : 1614007609
+	},
+	{
+		"name" : "lockdowntest",
+		"firstname" : "Daniel",
+		"lastname" : "Jacobsen",
+		"grade" : 30.00000,
+		"timemodified" : 1614696614
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikeholdsinstruksjoner",
+		"firstname" : "Kjetil",
+		"lastname" : "Bøe",
+		"grade" : 9.11111,
+		"timemodified" : 1614079093
+	},
+	{
+		"name" : "Arbeidsoppgaver - Operasjonsinstruksjoner (random)",
+		"firstname" : "Trond",
+		"lastname" : "Larsen",
+		"grade" : 82.08335,
+		"timemodified" : 1614085090
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikeholdsinstruksjoner",
+		"firstname" : "Trond",
+		"lastname" : "Larsen",
+		"grade" : 6.68254,
+		"timemodified" : 1614099456
+	},
+	{
+		"name" : "Arbeidsoppgaver - Teknisk beskrivelse",
+		"firstname" : "Christoffer",
+		"lastname" : "Bjerkan",
+		"grade" : 76.66667,
+		"timemodified" : 1614178626
+	},
+	{
+		"name" : "Arbeidsoppgaver - Operasjonsinstruksjoner",
+		"firstname" : "Christoffer",
+		"lastname" : "Bjerkan",
+		"grade" : 70.41665,
+		"timemodified" : 1614181882
+	},
+	{
+		"name" : "Arbeidsoppgaver - Vedlikehold.",
+		"firstname" : "Christoffer",
+		"lastname" : "Bjerkan",
+		"grade" : 73.80950,
+		"timemodified" : 1614184338
+	},
+	{
+		"name" : "Mechanical Level 0 Exam",
+		"firstname" : "Adam",
+		"lastname" : "Sowers",
+		"grade" : 86.27777,
+		"timemodified" : 1614283858
+	}
+]
