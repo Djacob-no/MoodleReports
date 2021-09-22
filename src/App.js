@@ -33,8 +33,6 @@ function App() {
  
 
 
-
-
   return (
     <div id="wrapper" className="App">
       <div id="content-wrapper" className="d-flex flex-column">
@@ -53,10 +51,10 @@ function App() {
                 <SearchBar onChange={searchUpdate} />
               </div>
             </div>
-
+          
             <div className="row">
               <SmallCard icon="book" color="primary" title="Attemps Total" value={stateDB.totalAttempts} />
-              <SmallCard icon="address-card" color="info" title="Final Grades" value="45" />
+              <SmallCard icon="address-card" color="info" title="Final Grades" value={stateDB.finalGrades.length} />
               <SmallCard icon="check-circle" color="success" title="Passed Attempts" value={stateDB.passCountFunction ? stateDB.passCountFunction("pass") : "0"} />
               <SmallCard icon="times-circle" color="danger" title="Failed Attempts" value={stateDB.passCountFunction ? stateDB.passCountFunction("fail") : "0"} />
             </div>

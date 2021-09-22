@@ -24,10 +24,14 @@ const dataManager = (searchInput,time) => {
         let from = (tempfrom.getMonth() + 1) + '/' + tempfrom.getDate() + '/' + tempfrom.getFullYear();
         return { "from": from, "to": to }
     }
-    //filter data in by global search and time
-    const fdata = tdata.filter(e => {
+    //filter function used to filter json data based on time and search term 
+    function searchFilter(e){
         if (e.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1) {
-            const date = new Date(e.timefinish * 1000);
+            let date;
+            if(e.timefinish){
+                date = new Date(e.timefinish * 1000);
+            } else date = new Date(e.timemodified * 1000);
+
             var examDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
             let dateFrom = timeFilter().from;
             let dateTo = timeFilter().to;
@@ -44,7 +48,11 @@ const dataManager = (searchInput,time) => {
                 return e
             }
         }
-    });
+
+    }
+    //filter data in by global search and time
+    const fdata = tdata.filter(searchFilter);
+    const fGradeData = gradeData.filter(searchFilter);
 
     const passingScore = 80; //input variable
     const exams = []; //temporary storage
@@ -115,7 +123,7 @@ const dataManager = (searchInput,time) => {
         if (p === "fail") return failStack;
     }
 
-    return { "monthlyAttempts": montlyAttempts, "passingScore": passingScore, "examsOverview": examsObject,"examDataRaw": fdata, "examData": sorted, "totalAttempts": totalAttempts, "passCountFunction": passCount }
+    return { "monthlyAttempts": montlyAttempts, "passingScore": passingScore, "examsOverview": examsObject,"examDataRaw": fdata, "examData": sorted, "totalAttempts": totalAttempts, "passCountFunction": passCount, "finalGrades":fGradeData}
 }
 
 export default dataManager
