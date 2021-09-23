@@ -1,6 +1,19 @@
 
 const tdata = require("./databaseMoodle.json");
 const gradeData = require("./grades.json");
+/*
+var url = "https://koy5fd9psk.execute-api.us-east-1.amazonaws.com/dev/";
+var xhr = new XMLHttpRequest();
+xhr.open("GET", url);
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.setRequestHeader("x-api-key", "7xWNHjPNRH4wJbicGu3Zu21ynVfrni5csEM8ibqh");
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      console.log(xhr.responseText);
+   }};
+xhr.send();
+*/
 //console.log(tdata);
 
 const dataManager = (searchInput,time) => {

@@ -14,7 +14,7 @@ function App() {
 
   //get data from database hook
   //const moodleData = usePosts();
-
+console.log(usePosts());
 
   //SearchBar inputs, trigger datamanager to update app state with filtered database data
   const [timeframe, setTimeframe] = useState("all");
@@ -54,7 +54,7 @@ function App() {
           
             <div className="row">
               <SmallCard icon="book" color="primary" title="Attemps Total" value={stateDB.totalAttempts} />
-              <SmallCard icon="address-card" color="info" title="Final Grades" value={stateDB.finalGrades.length} />
+              <SmallCard icon="address-card" color="info" title="Final Grades" value={"stateDB.finalGrades.length"} />
               <SmallCard icon="check-circle" color="success" title="Passed Attempts" value={stateDB.passCountFunction ? stateDB.passCountFunction("pass") : "0"} />
               <SmallCard icon="times-circle" color="danger" title="Failed Attempts" value={stateDB.passCountFunction ? stateDB.passCountFunction("fail") : "0"} />
             </div>

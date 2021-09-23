@@ -1,5 +1,5 @@
-import {useState, useEffect} from 'react';
-const baseUrl = 'https://jsonplaceholder.typicode.com';
+import { useState, useEffect } from 'react';
+const baseUrl = 'https://koy5fd9psk.execute-api.us-east-1.amazonaws.com/dev/';
 
 
 const usePosts = () => {
@@ -7,7 +7,14 @@ const usePosts = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`${baseUrl}/posts`);
+      const res = await fetch(baseUrl, {
+        method: "GET",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': ' application/json',
+          'x-api-key': '7xWNHjPNRH4wJbicGu3Zu21ynVfrni5csEM8ibqh'
+        }
+      });
       const posts = await res.json();
       setData(posts);
     };
