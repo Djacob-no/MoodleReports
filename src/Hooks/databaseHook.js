@@ -10,7 +10,6 @@ const usePosts = () => {
       const res = await fetch(baseUrl, {
         method: "GET",
         headers: {
-          'Accept': 'application/json',
           'Content-Type': ' application/json',
           'x-api-key': '7xWNHjPNRH4wJbicGu3Zu21ynVfrni5csEM8ibqh'
         }

@@ -2,7 +2,7 @@
 const tdata = require("./databaseMoodle.json");
 const gradeData = require("./grades.json");
 /*
-var url = "https://koy5fd9psk.execute-api.us-east-1.amazonaws.com/dev/";
+var url = "https://www.testjsonapi.com/users/";
 var xhr = new XMLHttpRequest();
 xhr.open("GET", url);
 xhr.setRequestHeader('Content-Type', 'application/json');
