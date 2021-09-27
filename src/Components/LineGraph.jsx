@@ -5,7 +5,7 @@ const LineGraph = ({ exams, timeframe, examDataRaw }) => {
   //if statement to return something only if user has searched for something. Else dont show diagram
   if (exams) {
 
-    console.log(timeframe);
+    
     const today = new Date(); // create a date object today
     let minusAMonth = new Date(); //initialize this 
     minusAMonth.setMonth(minusAMonth.getMonth() - 1); //make this variable date object 1month back in time
@@ -16,17 +16,17 @@ const LineGraph = ({ exams, timeframe, examDataRaw }) => {
     let daysArrayFailed = [];//stores an array of each day in the timeframe(1month back from today)
     let daysArrayLabels =[];//stores days of the month cooresponding to the daysArray above [20,21,21,23....]
 
-    //loop through everyday from today and a month back in time
-    for (let i = 0; i < days_difference; i++) {
+    //loop through everyday from a month back in time until now
+    for (let i = days_difference-1; i > -1; i--) {
       let thisDay = new Date();
       thisDay.setDate(thisDay.getDate() - i);
       let thisDaysAttempts = 0;
       let thisDaysPassed = 0;
       let thisDaysFailed = 0;
       //loop through exam attemps and look for date matching this date count up attempt and passed and failed counter
-      //console.log(examDataRaw);
+
       for (let j = 0; j < examDataRaw.length; j++) {
-        if (examDataRaw[j].dateFormat.getDate() === thisDay.getDate()) {
+        if (examDataRaw[j].dateFormat.toISOString().split('T')[0] === thisDay.toISOString().split('T')[0]) {
           thisDaysAttempts++
           if(examDataRaw[j].passed === true){thisDaysPassed++} else thisDaysFailed++;
         }
@@ -34,6 +34,7 @@ const LineGraph = ({ exams, timeframe, examDataRaw }) => {
       daysArray.push(thisDaysAttempts);
       daysArrayFailed.push(thisDaysFailed);
       daysArrayPassed.push(thisDaysPassed);
+      daysArrayLabels.push(thisDay.getDate());
     }
 
     const data_days = {
@@ -130,7 +131,7 @@ const LineGraph = ({ exams, timeframe, examDataRaw }) => {
 
               </div>
             </div>
-            <Line data={timeframe === "month" ? data_days : data_months} options={options} />
+            <Line data={timeframe.scope === "month" ? data_days : data_months} options={options} />
 
 
 

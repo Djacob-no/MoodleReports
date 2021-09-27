@@ -1,42 +1,13 @@
 
-const tdata = require("./databaseMoodle.json");
 const gradeData = require("./grades.json");
-/*
-var url = "https://www.testjsonapi.com/users/";
-var xhr = new XMLHttpRequest();
-xhr.open("GET", url);
-xhr.setRequestHeader('Content-Type', 'application/json');
-xhr.setRequestHeader("x-api-key", "7xWNHjPNRH4wJbicGu3Zu21ynVfrni5csEM8ibqh");
-xhr.onreadystatechange = function () {
-   if (xhr.readyState === 4) {
-      console.log(xhr.status);
-      console.log(xhr.responseText);
-   }};
-xhr.send();
-*/
-//console.log(tdata);
 
-const dataManager = (searchInput,time) => {
 
-    //create from and to timeframe for retrieving data
-    function timeFilter() {
-        const now = new Date();
-        let tempfrom = now;
-        let to = (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
-        switch (time) {
-            case "month":
-                tempfrom.setMonth(tempfrom.getMonth() - 1);
-                break;
-            case "year":
-                tempfrom.setFullYear(tempfrom.getFullYear() - 1);
-                break;
-            default:
-                tempfrom.setFullYear(tempfrom.getFullYear() - 30);
-                break;
-        }
-        let from = (tempfrom.getMonth() + 1) + '/' + tempfrom.getDate() + '/' + tempfrom.getFullYear();
-        return { "from": from, "to": to }
-    }
+const useDataManager = (searchInput,time,rawData) => {
+    let tdata =[];
+    if(rawData.data) {
+    tdata = rawData.data;
+
+    
     //filter function used to filter json data based on time and search term 
     function searchFilter(e){
         if (e.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1) {
@@ -46,8 +17,8 @@ const dataManager = (searchInput,time) => {
             } else date = new Date(e.timemodified * 1000);
 
             var examDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
-            let dateFrom = timeFilter().from;
-            let dateTo = timeFilter().to;
+            let dateFrom = time.from;
+            let dateTo = time.to;
 
             let d1 = dateFrom.split("/");
             let d2 = dateTo.split("/");
@@ -57,11 +28,10 @@ const dataManager = (searchInput,time) => {
             let to = new Date(d2);
             let checkdate = new Date(c);
 
-            if (checkdate > from && checkdate < to) {
+            if (checkdate >= from && checkdate <= to) {
                 return e
             }
         }
-
     }
     //filter data in by global search and time
     const fdata = tdata.filter(searchFilter);
@@ -136,7 +106,9 @@ const dataManager = (searchInput,time) => {
         if (p === "fail") return failStack;
     }
 
+    console.log(fdata);
     return { "monthlyAttempts": montlyAttempts, "passingScore": passingScore, "examsOverview": examsObject,"examDataRaw": fdata, "examData": sorted, "totalAttempts": totalAttempts, "passCountFunction": passCount, "finalGrades":fGradeData}
+    }else return null;
 }
 
-export default dataManager
+export default useDataManager
