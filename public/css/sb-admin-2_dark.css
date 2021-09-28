@@ -51,7 +51,7 @@
     background-color: #223146;
     border-radius: 10px;
     border: none;
-    margin: 2em;
+    margin: 2em 2em 0em 2em;
     width: 500px;
     height: 50px;
     color: #fff;
@@ -61,6 +61,16 @@
     font-size: 22px;
 }
 .main-search:focus-visible {
+  outline: none;
+}
+.dateInput{
+  background-color: #223146;
+    color: #7b7b7b;
+    border-radius: 3px;
+    border: none;
+    margin: 20px;
+}
+.dateInput:focus-visible {
   outline: none;
 }
 
