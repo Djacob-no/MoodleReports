@@ -2,7 +2,7 @@
 const gradeData = require("./grades.json");
 
 
-const useDataManager = (searchInput,time,rawData) => {
+const useDataManager = (searchInput,from,to,rawData) => {
     let tdata =[];
     if(rawData.data) {
     tdata = rawData.data;
@@ -15,20 +15,9 @@ const useDataManager = (searchInput,time,rawData) => {
             if(e.timefinish){
                 date = new Date(e.timefinish * 1000);
             } else date = new Date(e.timemodified * 1000);
-
-            var examDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
-            let dateFrom = time.from;
-            let dateTo = time.to;
-
-            let d1 = dateFrom.split("/");
-            let d2 = dateTo.split("/");
-            let c = examDate.split("/");
-
-            let from = new Date(d1);  // -1 because months are from 0 to 11
-            let to = new Date(d2);
-            let checkdate = new Date(c);
-
-            if (checkdate >= from && checkdate <= to) {
+            const mdate = date.getFullYear() + '-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+            //console.log("date is " +mdate +"from is "+from+" to is "+to)
+            if (mdate >= from && mdate <= to) {
                 return e
             }
         }

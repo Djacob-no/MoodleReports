@@ -20,7 +20,7 @@ const usePosts = () => {
     fetchData();
   }, []);
 
-  console.log("raw db hook lenght = "+data.length);
+  //console.log("raw db hook lenght = "+data.length);
   return { data };
 };
 
