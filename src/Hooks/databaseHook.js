@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import apiKey from './apiKey';
 const baseUrl = 'https://koy5fd9psk.execute-api.us-east-1.amazonaws.com/dev/';
+
 
 
 const usePosts = () => {
@@ -11,7 +13,7 @@ const usePosts = () => {
         method: "GET",
         headers: {
           'Content-Type': ' application/json',
-          'x-api-key': '7xWNHjPNRH4wJbicGu3Zu21ynVfrni5csEM8ibqh'
+          'x-api-key': apiKey
         }
       });
       const posts = await res.json();

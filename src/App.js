@@ -12,16 +12,15 @@ import LineGraph from './Components/LineGraph';
 
 function App() {
 
-  //get data from database hook
-  //const moodleData = usePosts();
 
   //SearchBar inputs, trigger datamanager to update app state with filtered database data
-  const [timeframe, setTimeframe] = useState({ "from": "09/22/1980", "to": "09/22/2040" });
   const [stateDB, setDBState] = useState({ "totalAttempts": 0 });
+  const [stateTimefilter, setTimefilter] = useState();
   const databaseRaw = usePosts();
 
 
   const SearchUpdate = (search) => {
+      setTimefilter({"from":search.from, "to":search.to});
       setDBState(useDataManager(search.text, search.from, search.to, databaseRaw))
   };
 
@@ -48,7 +47,7 @@ function App() {
             </div>
 
             <div className="row">
-              <LineGraph exams={stateDB.monthlyAttempts} timeframe={timeframe} examDataRaw={stateDB.examDataRaw}/>
+              <LineGraph exams={stateDB.monthlyAttempts} timeframe={stateTimefilter} examDataRaw={stateDB.examDataRaw}/>
               <BarGraph exams={stateDB.examsOverview} sortedAttempts={stateDB.examData} />
               <BarGraph_failpercent exams={stateDB.examsOverview} />
             </div>
