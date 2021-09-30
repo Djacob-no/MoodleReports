@@ -6,8 +6,9 @@ const LineGraph = ({ exams, timeframe, examDataRaw }) => {
   if (exams) {
 
     //console.log("timefilter = "+timeframe.from);
-    const dateTo = new Date(timeframe.to); // create a date object today
-    let dateFrom = new Date(timeframe.from); //initialize this 
+    const dateTo = new Date(timeframe.to); // create a date object from the "to" timeframe
+    //dateTo.freeze();
+    let dateFrom = new Date(timeframe.from); // create a date object from the "from" timeframe
     const time_difference = dateTo.getTime() - dateFrom.getTime(); // gets time difference from today and a month back in time
     const days_difference = time_difference / (1000 * 60 * 60 * 24); //converts time difference from milliseconds to days
     let daysArray = [];//stores an array of attempts for each day between to and from in timeframe
@@ -15,11 +16,11 @@ const LineGraph = ({ exams, timeframe, examDataRaw }) => {
     let daysArrayFailed = [];//stores an array of failed attempts for each day between to and from in timeframe
     let daysArrayLabels =[];//stores days of the month cooresponding to the daysArray above [20,21,21,23....]
 
+    console.log("dateto "+days_difference);
     //loop through everyday between dateFrom and dateTo 
     if(days_difference<40){
       for (let i = days_difference; i > 0; i--) {
-        let thisLoopDay = new Date();
-        thisLoopDay.setDate(thisLoopDay.getDate() - i);
+        let thisLoopDay = new Date(dateTo.getFullYear(),dateTo.getMonth(),dateTo.getDate()-i) 
         let thisDaysAttempts = 0;
         let thisDaysPassed = 0;
         let thisDaysFailed = 0;
@@ -35,6 +36,7 @@ const LineGraph = ({ exams, timeframe, examDataRaw }) => {
         daysArrayFailed.push(thisDaysFailed);
         daysArrayPassed.push(thisDaysPassed);
         daysArrayLabels.push("D:"+thisLoopDay.getDate()+"M:"+(thisLoopDay.getMonth()+1));
+    
       }
     }
    

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const FieldEditor = ({ onChange }) => {
   const date = new Date();
   const [search, setSearch] = useState("");
-  const [from, setFrom] = useState("2019-01-01");
+  const [from, setFrom] = useState("2021-01-01");
   const [to, setTo] = useState(date.getFullYear() + '-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2));
 
 

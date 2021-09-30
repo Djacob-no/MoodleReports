@@ -4,7 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import SmallCard from './Components/SmallCard';
 import BarGraph from './Components/BarGraph';
 import BarGraph_failpercent from './Components/BarGraph_failpercent';
-import usePosts from './Hooks/databaseHook';
+import {useAttempts, useGrades} from './Hooks/databaseHook';
 import useDataManager from './Hooks/useDataManager.js';
 import React, { useState } from 'react';
 import SearchBar from './Components/SearchBar';
@@ -16,12 +16,13 @@ function App() {
   //SearchBar inputs, trigger datamanager to update app state with filtered database data
   const [stateDB, setDBState] = useState({ "totalAttempts": 0 });
   const [stateTimefilter, setTimefilter] = useState();
-  const databaseRaw = usePosts();
+  const databaseRaw = useAttempts();
+  const gradesRaw = useGrades();
 
 
   const SearchUpdate = (search) => {
       setTimefilter({"from":search.from, "to":search.to});
-      setDBState(useDataManager(search.text, search.from, search.to, databaseRaw))
+      setDBState(useDataManager(search.text, search.from, search.to, databaseRaw, gradesRaw.data))
   };
 
  
@@ -41,7 +42,7 @@ function App() {
           
             <div className="row">
               <SmallCard icon="book" color="primary" title="Attemps Total" value={stateDB.totalAttempts} />
-              <SmallCard icon="address-card" color="info" title="Final Grades" value={"stateDB.finalGrades.length"} />
+              <SmallCard icon="address-card" color="info" title="Final Grades" value={stateDB.finalGrades ? stateDB.finalGrades.length : "0"} />
               <SmallCard icon="check-circle" color="success" title="Passed Attempts" value={stateDB.passCountFunction ? stateDB.passCountFunction("pass") : "0"} />
               <SmallCard icon="times-circle" color="danger" title="Failed Attempts" value={stateDB.passCountFunction ? stateDB.passCountFunction("fail") : "0"} />
             </div>

@@ -1,8 +1,8 @@
 
-const gradeData = require("./grades.json");
+//const gradeData = require("./grades.json");
 
 
-const useDataManager = (searchInput, from, to, rawData) => {
+const useDataManager = (searchInput, from, to, rawData, gradeData) => {
     let tdata = [];
     if (rawData.data) {
         tdata = rawData.data;
@@ -13,11 +13,13 @@ const useDataManager = (searchInput, from, to, rawData) => {
             if (e.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1) {
                 let date;
                 if (e.timefinish) {
-                    date = new Date(e.timefinish * 1000);
-                } else date = new Date(e.timemodified * 1000);
-                const mdate = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+                    date = new Date(e.timefinish);
+                } else date = new Date(e.timemodified);
+                //const mdate = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+                const fromDateSeconds = new Date(from).getTime()/1000.0;
+                const toDateSeconds = new Date(to).getTime()/1000.0;
                 //console.log("date is " +mdate +"from is "+from+" to is "+to)
-                if (mdate >= from && mdate <= to) {
+                if (date >= fromDateSeconds && date <= toDateSeconds) {
                     return e
                 }
             }
@@ -38,7 +40,8 @@ const useDataManager = (searchInput, from, to, rawData) => {
         fdata.map(function (e) {
             e.scorePercent = (e.Score / e.MaxScore) * 100;
             e.passed = (e.scorePercent >= passingScore ? true : false);
-            e.dateFormat = new Date(e.timefinish * 1000);
+            if(e.timefinish) e.dateFormat = new Date(e.timefinish * 1000);
+            if(e.timemodified)e.dateFormat = new Date(e.timemodified * 1000);
             if (exams.indexOf(e.name) === -1) {
                 exams.push(e.name);
                 sorted.push([]);
@@ -64,12 +67,12 @@ const useDataManager = (searchInput, from, to, rawData) => {
             for (let i = 0; i < monthsDifference; i++) {
                 const thisMonth = new Date(fromDateObject.getFullYear(),fromDateObject.getMonth()+i);
               
-                const thisMonthString = `${thisMonth.getMonth()}-${thisMonth.getFullYear()}`;
+                const thisMonthString = `${(thisMonth.getMonth()+1)}-${thisMonth.getFullYear()}`;
                 let monthlyRecord = {date:thisMonthString, "total":0,"passed":0, "failed":0};
                 //loops through list of attempts 
                 for (let j = 0; j < fdata.length; j++) {
                     const attemptDateObject = fdata[j].dateFormat;
-                    const attemptsDateString = `${attemptDateObject.getMonth()}-${attemptDateObject.getFullYear()}`;
+                    const attemptsDateString = `${(attemptDateObject.getMonth()+1)}-${attemptDateObject.getFullYear()}`;
                     if(thisMonthString === attemptsDateString){
                         monthlyRecord.total++
                         if (fdata[j].passed === true) monthlyRecord.passed++;
