@@ -3,7 +3,8 @@
 
 
 const useDataManager = (searchInput, from, to, rawData, gradeData) => {
-    let tdata = [];
+    let tdata = [0,0,0];
+    console.log(rawData.data);
     if (rawData.data) {
         tdata = rawData.data;
 

@@ -9,6 +9,7 @@ import useDataManager from './Hooks/useDataManager.js';
 import React, { useState } from 'react';
 import SearchBar from './Components/SearchBar';
 import LineGraph from './Components/LineGraph';
+import Modal from "./Components/Modal";
 
 function App() {
 
@@ -16,8 +17,33 @@ function App() {
   //SearchBar inputs, trigger datamanager to update app state with filtered database data
   const [stateDB, setDBState] = useState({ "totalAttempts": 0 });
   const [stateTimefilter, setTimefilter] = useState();
+  const [modalState, setModalState] =useState({
+    modal: false,
+    name: "",
+    modalInputName: ""
+  });
+  
   const databaseRaw = useAttempts();
   const gradesRaw = useGrades();
+
+  const handleModalChange = (e) =>{
+    const target = e.target;
+    const name = target.name;
+    const value = target.value;
+    setModalState({
+      [name]: value
+    });
+  }
+  const handleModalSubmit = (e) =>{
+    setModalState({name: modalState.name});
+    modalClose();
+  }
+  const modalOpen = () =>{
+    setModalState({modal:true});
+  }
+  const modalClose = () =>{
+    setModalState({modalInputName:"", modal:false});
+  }
 
 
   const SearchUpdate = (search) => {
@@ -33,6 +59,15 @@ function App() {
         <div id="content">
           <div className="container-fluid" >
 
+        <a href="javascript:;" onClick={modalOpen}>
+          Open Modal
+        </a>
+        <Modal show={modalState.modal} handleClose={e => modalClose(e)} children={stateDB.finalGrades}>
+          <h2>Final Grades</h2>
+          <ul>
+            
+            </ul>
+        </Modal>
 
             <div className="row">
               <div className="col-md-12">
