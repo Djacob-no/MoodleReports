@@ -9,7 +9,9 @@ const Modal = ({ handleClose, show, children }) => {
         <a href="javascript:;" className="modal-close" onClick={handleClose}>
           close
             </a>
-        <table>
+
+            <div className="table-wrapper">
+        <table className="fl-table">
           <tr>
             <th>Candidate</th>
             <th>Exam</th>
@@ -18,7 +20,7 @@ const Modal = ({ handleClose, show, children }) => {
           </tr>
           {children}
         </table>
-
+</div>
       </div>
     </div>
   );

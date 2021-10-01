@@ -9,6 +9,7 @@ import useDataManager from './Hooks/useDataManager.js';
 import React, { useState } from 'react';
 import SearchBar from './Components/SearchBar';
 import LineGraph from './Components/LineGraph';
+import LineGraphScores from './Components/LineGraphScores';
 import Modal from "./Components/Modal";
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
     setDBState(useDataManager(search.text, search.from, search.to, databaseRaw, gradesRaw.data))
   };
 
+  //create table from final grades and put it in listItems
   let listItems;
   if (stateDB.finalGrades) {
     listItems = stateDB.finalGrades.map((e) =>
@@ -47,7 +49,7 @@ function App() {
         <td>{`${e.firstname} ${e.lastname}`}</td>
         <td>{e.name}</td>
         <td>{e.grade}</td>
-        <td>{e.dateFormat}</td>
+        <td>{e.dateFormat.getMonth()+ "/"+e.dateFormat.getDate()+"/"+e.dateFormat.getFullYear()}</td>
       </tr>
     );
   }
@@ -60,9 +62,7 @@ function App() {
         <div id="content">
           <div className="container-fluid" >
 
-            <a href="javascript:;" onClick={modalOpen}>
-              Open Modal
-        </a>
+            
             <Modal show={modalState.modal} handleClose={e => modalClose(e)} children={listItems} />
 
 
@@ -75,7 +75,8 @@ function App() {
 
             <div className="row">
               <SmallCard icon="book" color="primary" title="Attemps Total" value={stateDB.totalAttempts} />
-              <SmallCard icon="address-card" color="info" title="Final Grades" value={stateDB.finalGrades ? stateDB.finalGrades.length : "0"} />
+              <SmallCard onClick={modalOpen} icon="address-card" color="info" title="Final Grades" value={stateDB.finalGrades ? stateDB.finalGrades.length : "0"} />
+              
               <SmallCard icon="check-circle" color="success" title="Passed Attempts" value={stateDB.passCountFunction ? stateDB.passCountFunction("pass") : "0"} />
               <SmallCard icon="times-circle" color="danger" title="Failed Attempts" value={stateDB.passCountFunction ? stateDB.passCountFunction("fail") : "0"} />
             </div>
@@ -83,7 +84,8 @@ function App() {
             <div className="row">
               <LineGraph exams={stateDB.monthlyAttempts} timeframe={stateTimefilter} examDataRaw={stateDB.examDataRaw} />
               <BarGraph exams={stateDB.examsOverview} sortedAttempts={stateDB.examData} />
-              <BarGraph_failpercent exams={stateDB.examsOverview} />
+              <LineGraphScores exams={stateDB.monthlyAttempts} timeframe={stateTimefilter} examDataRaw={stateDB.examDataRaw} />
+              <BarGraph_failpercent exams={stateDB.examsOverview}  />
             </div>
 
 

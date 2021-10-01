@@ -4,7 +4,7 @@
 
 const useDataManager = (searchInput, from, to, rawData, gradeData) => {
     let tdata = [0,0,0];
-    console.log(rawData.data);
+   // console.log(rawData.data);
     if (rawData.data) {
         tdata = rawData.data;
 
@@ -14,8 +14,13 @@ const useDataManager = (searchInput, from, to, rawData, gradeData) => {
             if (e.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1) {
                 let date;
                 if (e.timefinish) {
-                    date = new Date(e.timefinish);
-                } else date = new Date(e.timemodified);
+                    date = e.timefinish;
+                    //e.dateFormat = new Date(e.timefinish*1000)
+                } else {
+                    date = e.timemodified;
+                   // e.dateFormat = new Date(e.timemodified*1000)
+                }
+                
                 //const mdate = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
                 const fromDateSeconds = new Date(from).getTime()/1000.0;
                 const toDateSeconds = new Date(to).getTime()/1000.0;
@@ -28,10 +33,9 @@ const useDataManager = (searchInput, from, to, rawData, gradeData) => {
         //filter data in by global search and time
         const fdata = tdata.filter(searchFilter);
         const fGradeData = gradeData.filter(searchFilter);
-    /*   fGradeData.map(function (e) {
-            const ta = new Date(e.timemodified*1000)
-            e.dateFormat =  ta;
-        });*/
+        fGradeData.map(function (e) {
+            e.dateFormat = new Date(e.timemodified*1000)
+        });
       
         
 

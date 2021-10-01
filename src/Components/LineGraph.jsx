@@ -35,7 +35,8 @@ const LineGraph = ({ exams, timeframe, examDataRaw }) => {
         daysArray.push(thisDaysAttempts);
         daysArrayFailed.push(thisDaysFailed);
         daysArrayPassed.push(thisDaysPassed);
-        daysArrayLabels.push("D:"+thisLoopDay.getDate()+"M:"+(thisLoopDay.getMonth()+1));
+        //dont know why i had to put a -1 to thisLoopDayGetDate but that corrects the date label compared to attempts
+        daysArrayLabels.push("D:"+(thisLoopDay.getDate()-1)+"M:"+(thisLoopDay.getMonth()+1));
     
       }
     }
