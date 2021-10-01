@@ -93,8 +93,8 @@ const LineGraph = ({ exams, timeframe, examDataRaw }) => {
           label: 'Total',
           data: exams.map(e => {return e.total}),
           fill: false,
-          backgroundColor: '#36b9cc',
-          borderColor: '#36b9cc',
+          backgroundColor: '#4e73df',
+          borderColor: '#4e73df',
         },
       ],
     };

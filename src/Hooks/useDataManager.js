@@ -28,6 +28,12 @@ const useDataManager = (searchInput, from, to, rawData, gradeData) => {
         //filter data in by global search and time
         const fdata = tdata.filter(searchFilter);
         const fGradeData = gradeData.filter(searchFilter);
+    /*   fGradeData.map(function (e) {
+            const ta = new Date(e.timemodified*1000)
+            e.dateFormat =  ta;
+        });*/
+      
+        
 
         const passingScore = 80; //input variable
         const exams = []; //temporary storage

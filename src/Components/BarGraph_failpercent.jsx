@@ -22,7 +22,7 @@ const BarGraph_failpercent = ({exams,sortedAttempts}) => {
       labels: examNames,
       datasets: [{
         label: 'Failpercent',
-        backgroundColor: "#1cc88a",
+        backgroundColor: "#da291c",
         borderWidth: 0,
         data: failPercent
       }

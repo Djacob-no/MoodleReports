@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import apiKey from './apiKey';
-const baseUrl = 'https://koy5fd9psk.execute-api.us-east-1.amazonaws.com/dev/';
-const basegrades ='https://koy5fd9psk.execute-api.us-east-1.amazonaws.com/dev/grades';
+const baseUrl = 'https://qmkovgsrs9.execute-api.us-east-1.amazonaws.com/prod';
+const basegrades ='https://qmkovgsrs9.execute-api.us-east-1.amazonaws.com/prod/grades';
 
 
 export const useAttempts = () => {

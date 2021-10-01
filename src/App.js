@@ -4,7 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import SmallCard from './Components/SmallCard';
 import BarGraph from './Components/BarGraph';
 import BarGraph_failpercent from './Components/BarGraph_failpercent';
-import {useAttempts, useGrades} from './Hooks/databaseHook';
+import { useAttempts, useGrades } from './Hooks/databaseHook';
 import useDataManager from './Hooks/useDataManager.js';
 import React, { useState } from 'react';
 import SearchBar from './Components/SearchBar';
@@ -17,41 +17,42 @@ function App() {
   //SearchBar inputs, trigger datamanager to update app state with filtered database data
   const [stateDB, setDBState] = useState({ "totalAttempts": 0 });
   const [stateTimefilter, setTimefilter] = useState();
-  const [modalState, setModalState] =useState({
+  const [modalState, setModalState] = useState({
     modal: false,
     name: "",
     modalInputName: ""
   });
-  
+
   const databaseRaw = useAttempts();
   const gradesRaw = useGrades();
 
-  const handleModalChange = (e) =>{
-    const target = e.target;
-    const name = target.name;
-    const value = target.value;
-    setModalState({
-      [name]: value
-    });
+
+  const modalOpen = () => {
+    setModalState({ modal: true });
   }
-  const handleModalSubmit = (e) =>{
-    setModalState({name: modalState.name});
-    modalClose();
-  }
-  const modalOpen = () =>{
-    setModalState({modal:true});
-  }
-  const modalClose = () =>{
-    setModalState({modalInputName:"", modal:false});
+  const modalClose = () => {
+    setModalState({ modalInputName: "", modal: false });
   }
 
 
   const SearchUpdate = (search) => {
-      setTimefilter({"from":search.from, "to":search.to});
-      setDBState(useDataManager(search.text, search.from, search.to, databaseRaw, gradesRaw.data))
+    setTimefilter({ "from": search.from, "to": search.to });
+    setDBState(useDataManager(search.text, search.from, search.to, databaseRaw, gradesRaw.data))
   };
 
- 
+  let listItems;
+  if (stateDB.finalGrades) {
+    listItems = stateDB.finalGrades.map((e) =>
+      <tr>
+        <td>{`${e.firstname} ${e.lastname}`}</td>
+        <td>{e.name}</td>
+        <td>{e.grade}</td>
+        <td>{e.dateFormat}</td>
+      </tr>
+    );
+  }
+
+
 
   return (
     <div id="wrapper" className="App">
@@ -59,22 +60,19 @@ function App() {
         <div id="content">
           <div className="container-fluid" >
 
-        <a href="javascript:;" onClick={modalOpen}>
-          Open Modal
+            <a href="javascript:;" onClick={modalOpen}>
+              Open Modal
         </a>
-        <Modal show={modalState.modal} handleClose={e => modalClose(e)} children={stateDB.finalGrades}>
-          <h2>Final Grades</h2>
-          <ul>
-            
-            </ul>
-        </Modal>
+            <Modal show={modalState.modal} handleClose={e => modalClose(e)} children={listItems} />
+
+
 
             <div className="row">
               <div className="col-md-12">
                 <SearchBar onChange={SearchUpdate} />
               </div>
             </div>
-          
+
             <div className="row">
               <SmallCard icon="book" color="primary" title="Attemps Total" value={stateDB.totalAttempts} />
               <SmallCard icon="address-card" color="info" title="Final Grades" value={stateDB.finalGrades ? stateDB.finalGrades.length : "0"} />
@@ -83,7 +81,7 @@ function App() {
             </div>
 
             <div className="row">
-              <LineGraph exams={stateDB.monthlyAttempts} timeframe={stateTimefilter} examDataRaw={stateDB.examDataRaw}/>
+              <LineGraph exams={stateDB.monthlyAttempts} timeframe={stateTimefilter} examDataRaw={stateDB.examDataRaw} />
               <BarGraph exams={stateDB.examsOverview} sortedAttempts={stateDB.examData} />
               <BarGraph_failpercent exams={stateDB.examsOverview} />
             </div>
