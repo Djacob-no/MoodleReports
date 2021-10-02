@@ -29,9 +29,7 @@
 }
 
 .modal-container{
-  
     background-color: #121224;
-  
     padding: 20px;
 }
 
@@ -77,6 +75,11 @@
 
 .fl-table tr:nth-child(even) {
   background:#1a1a31;
+}
+
+.card-body a {
+  text-decoration: none;
+  
 }
 
 

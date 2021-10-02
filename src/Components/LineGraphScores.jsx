@@ -15,7 +15,7 @@ const LineGraphScores = ({ exams, timeframe, examDataRaw }) => {
     let daysArrayLabels = [];//stores days of the month cooresponding to the daysArray above [20,21,21,23....]
 
     //loop through everyday between dateFrom and dateTo 
-    if (days_difference < 40) {
+    if (days_difference < 30) {
       for (let i = days_difference; i > 0; i--) {
         let thisLoopDay = new Date(dateTo.getFullYear(), dateTo.getMonth(), dateTo.getDate() - i);
         let thisDaysAttempts = [];
@@ -23,14 +23,14 @@ const LineGraphScores = ({ exams, timeframe, examDataRaw }) => {
         for (let j = 0; j < examDataRaw.length; j++) {
           if (examDataRaw[j].dateFormat.toISOString().split('T')[0] === thisLoopDay.toISOString().split('T')[0]) {
             daysArray.push(
-              { "x": (thisLoopDay.getDate()+""+thisLoopDay.getMonth()), "y": examDataRaw[j].scorePercent }
+              { "x": (thisLoopDay.getDate()-1), "y": examDataRaw[j].scorePercent }
             );
           }
         }
         //dont know why i had to put a -1 to thisLoopDayGetDate but that corrects the date label compared to attempts
         daysArrayLabels.push("D:" + (thisLoopDay.getDate() - 1) + "M:" + (thisLoopDay.getMonth() + 1));
       }
-    }
+    } else return null;
 
     console.log(daysArray);
   
@@ -41,7 +41,7 @@ const LineGraphScores = ({ exams, timeframe, examDataRaw }) => {
       {
         label: 'A dataset',
         data: daysArray,
-        backgroundColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: '#f1db43',
       },
     ],
   };

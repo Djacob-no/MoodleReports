@@ -28,8 +28,8 @@ function App() {
   const gradesRaw = useGrades();
 
 
-  const modalOpen = () => {
-    setModalState({ modal: true });
+  const modalOpen = (input) => {
+    setModalState({ modal: true, child:input.target.id});
   }
   const modalClose = () => {
     setModalState({ modalInputName: "", modal: false });
@@ -41,14 +41,25 @@ function App() {
     setDBState(useDataManager(search.text, search.from, search.to, databaseRaw, gradesRaw.data))
   };
 
-  //create table from final grades and put it in listItems
-  let listItems;
+  //create table from final grades and put it in gradeItems
+  let gradeItems;
   if (stateDB.finalGrades) {
-    listItems = stateDB.finalGrades.map((e) =>
+    gradeItems = stateDB.finalGrades.map((e) =>
       <tr>
         <td>{`${e.firstname} ${e.lastname}`}</td>
         <td>{e.name}</td>
         <td>{e.grade}</td>
+        <td>{e.dateFormat.getMonth()+ "/"+e.dateFormat.getDate()+"/"+e.dateFormat.getFullYear()}</td>
+      </tr>
+    );
+  }
+  let attemptList;
+  if (stateDB.examDataRaw) {
+    attemptList = stateDB.examDataRaw.map((e) =>
+      <tr>
+        <td>{`${e.firstname} ${e.lastname}`}</td>
+        <td>{e.name}</td>
+        <td>{e.scorePercent}</td>
         <td>{e.dateFormat.getMonth()+ "/"+e.dateFormat.getDate()+"/"+e.dateFormat.getFullYear()}</td>
       </tr>
     );
@@ -63,7 +74,7 @@ function App() {
           <div className="container-fluid" >
 
             
-            <Modal show={modalState.modal} handleClose={e => modalClose(e)} children={listItems} />
+            <Modal show={modalState.modal} handleClose={e => modalClose(e)} children={modalState.child=="Final Grades" ? gradeItems: attemptList} />
 
 
 
@@ -74,7 +85,7 @@ function App() {
             </div>
 
             <div className="row">
-              <SmallCard icon="book" color="primary" title="Attemps Total" value={stateDB.totalAttempts} />
+              <SmallCard onClick={modalOpen} icon="book" color="primary" title="Attemps Total" value={stateDB.totalAttempts} />
               <SmallCard onClick={modalOpen} icon="address-card" color="info" title="Final Grades" value={stateDB.finalGrades ? stateDB.finalGrades.length : "0"} />
               
               <SmallCard icon="check-circle" color="success" title="Passed Attempts" value={stateDB.passCountFunction ? stateDB.passCountFunction("pass") : "0"} />
