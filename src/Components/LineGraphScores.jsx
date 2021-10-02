@@ -39,7 +39,7 @@ const LineGraphScores = ({ exams, timeframe, examDataRaw }) => {
   const data_days = {
     datasets: [
       {
-        label: 'A dataset',
+        label: 'Scores',
         data: daysArray,
         backgroundColor: '#f1db43',
       },

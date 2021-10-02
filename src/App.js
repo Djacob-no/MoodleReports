@@ -74,7 +74,7 @@ function App() {
           <div className="container-fluid" >
 
             
-            <Modal show={modalState.modal} handleClose={e => modalClose(e)} children={modalState.child=="Final Grades" ? gradeItems: attemptList} />
+            <Modal title={modalState.child} show={modalState.modal} handleClose={e => modalClose(e)} children={modalState.child === "Final Grades" ? gradeItems: attemptList} />
 
 
 
@@ -85,7 +85,7 @@ function App() {
             </div>
 
             <div className="row">
-              <SmallCard onClick={modalOpen} icon="book" color="primary" title="Attemps Total" value={stateDB.totalAttempts} />
+              <SmallCard onClick={modalOpen} icon="book" color="primary" title="Attempts Total" value={stateDB.totalAttempts} />
               <SmallCard onClick={modalOpen} icon="address-card" color="info" title="Final Grades" value={stateDB.finalGrades ? stateDB.finalGrades.length : "0"} />
               
               <SmallCard icon="check-circle" color="success" title="Passed Attempts" value={stateDB.passCountFunction ? stateDB.passCountFunction("pass") : "0"} />

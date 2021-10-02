@@ -1,6 +1,6 @@
 import React from "react";
 
-const Modal = ({ handleClose, show, children }) => {
+const Modal = ({title, handleClose, show, children }) => {
   const showHideClassName = show ? "modal d-block" : "modal d-none";
 
   return (
@@ -9,7 +9,7 @@ const Modal = ({ handleClose, show, children }) => {
         <a href="javascript:;" className="modal-close" onClick={handleClose}>
           close
             </a>
-
+<h1>{title}</h1>
             <div className="table-wrapper">
         <table className="fl-table">
           <tr>
