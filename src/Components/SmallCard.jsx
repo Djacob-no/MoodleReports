@@ -5,7 +5,7 @@ const SmallCard = (props) => {
         <div className="col-xl-3 col-md-6 mb-4">
             <div className={`card border-left-${props.color} shadow h-100 py-2`}>
                 <div className="card-body">
-                    <a href="jav:" onClick={props.onClick}>
+                    <a href={props.onClick ? "jav:": null} onClick={props.onClick}>
                         <div className="row no-gutters align-items-center">
                             <div className="col mr-2">
                                 <div className={`text-xs font-weight-bold text-${props.color} text-uppercase mb-1`}>

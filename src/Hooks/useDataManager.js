@@ -2,7 +2,7 @@
 //const gradeData = require("./grades.json");
 
 
-const useDataManager = (searchInput, from, to, rawData, gradeData) => {
+const useDataManager = (searchInput, from, to, rawData, gradeData, passingScore) => {
     let tdata = [0,0,0];
    // console.log(rawData.data);
     if (rawData.data) {
@@ -39,7 +39,7 @@ const useDataManager = (searchInput, from, to, rawData, gradeData) => {
       
         
 
-        const passingScore = 80; //input variable
+        
         const exams = []; //temporary storage
         const examsObject = []; //returned object
         const sorted = []; //returned object
@@ -49,7 +49,7 @@ const useDataManager = (searchInput, from, to, rawData, gradeData) => {
         //modifies tdata list and adds whether its a passed or failed attempt and a percentage score
         //also creates the exams array used in the sorting function below
         fdata.map(function (e) {
-            e.scorePercent = (e.Score / e.MaxScore) * 100;
+            e.scorePercent = ((e.Score / e.MaxScore) * 100).toFixed(2);
             e.passed = (e.scorePercent >= passingScore ? true : false);
             if(e.timefinish) e.dateFormat = new Date(e.timefinish * 1000);
             if(e.timemodified)e.dateFormat = new Date(e.timemodified * 1000);

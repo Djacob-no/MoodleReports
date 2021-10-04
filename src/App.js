@@ -23,13 +23,14 @@ function App() {
     name: "",
     modalInputName: ""
   });
+  const [passingScore, setPassingScore] = useState(80);
 
   const databaseRaw = useAttempts();
   const gradesRaw = useGrades();
 
 
   const modalOpen = (input) => {
-    setModalState({ modal: true, child:input.target.id});
+    setModalState({ modal: true, child: input.target.id });
   }
   const modalClose = () => {
     setModalState({ modalInputName: "", modal: false });
@@ -38,43 +39,40 @@ function App() {
 
   const SearchUpdate = (search) => {
     setTimefilter({ "from": search.from, "to": search.to });
-    setDBState(useDataManager(search.text, search.from, search.to, databaseRaw, gradesRaw.data))
+    setDBState(useDataManager(search.text, search.from, search.to, databaseRaw, gradesRaw.data, passingScore))
   };
-
-  //create table from final grades and put it in gradeItems
-  let gradeItems;
-  if (stateDB.finalGrades) {
-    gradeItems = stateDB.finalGrades.map((e) =>
-      <tr>
-        <td>{`${e.firstname} ${e.lastname}`}</td>
-        <td>{e.name}</td>
-        <td>{e.grade}</td>
-        <td>{e.dateFormat.getMonth()+ "/"+e.dateFormat.getDate()+"/"+e.dateFormat.getFullYear()}</td>
-      </tr>
-    );
+  const handlePassScore = (e) => {
+    e.preventDefault();
+    setPassingScore(e.target.value);
+    console.log(e.target)
   }
-  let attemptList;
-  if (stateDB.examDataRaw) {
-    attemptList = stateDB.examDataRaw.map((e) =>
-      <tr>
-        <td>{`${e.firstname} ${e.lastname}`}</td>
-        <td>{e.name}</td>
-        <td>{e.scorePercent}</td>
-        <td>{e.dateFormat.getMonth()+ "/"+e.dateFormat.getDate()+"/"+e.dateFormat.getFullYear()}</td>
-      </tr>
-    );
-  }
-
+  console.log(passingScore)
 
 
   return (
     <div id="wrapper" className="App">
       <div id="content-wrapper" className="d-flex flex-column">
         <div id="content">
-          <div className="container-fluid" >
+          <div className="pageTop">
+            <div className="left"><a style={{ color: "#fff", fontWeight: 800 }} href="wiki.nov.com">ESO Reports</a></div>
+            <div className="right">
+              <a>
+                <i className={`fas fa-cog`}></i>
+              </a>
+              <form onSubmit={(e)=> e.preventDefault()}>
+                Set Passing Score
+                  <input type="number" id="passingScore" onChange={handlePassScore} >
+                  </input>
+               
+              </form>
 
-            
-            <Modal title={modalState.child} show={modalState.modal} handleClose={e => modalClose(e)} children={modalState.child === "Final Grades" ? gradeItems: attemptList} />
+            </div>
+          </div>
+          <div style={{ marginTop: "50px" }} className="container-fluid" >
+
+
+
+            <Modal title={modalState.child} show={modalState.modal} handleClose={e => modalClose(e)} data={modalState.child === "Final Grades" ? stateDB.finalGrades : stateDB.examDataRaw} />
 
 
 
@@ -87,7 +85,7 @@ function App() {
             <div className="row">
               <SmallCard onClick={modalOpen} icon="book" color="primary" title="Attempts Total" value={stateDB.totalAttempts} />
               <SmallCard onClick={modalOpen} icon="address-card" color="info" title="Final Grades" value={stateDB.finalGrades ? stateDB.finalGrades.length : "0"} />
-              
+
               <SmallCard icon="check-circle" color="success" title="Passed Attempts" value={stateDB.passCountFunction ? stateDB.passCountFunction("pass") : "0"} />
               <SmallCard icon="times-circle" color="danger" title="Failed Attempts" value={stateDB.passCountFunction ? stateDB.passCountFunction("fail") : "0"} />
             </div>
@@ -96,7 +94,7 @@ function App() {
               <LineGraph exams={stateDB.monthlyAttempts} timeframe={stateTimefilter} examDataRaw={stateDB.examDataRaw} />
               <BarGraph exams={stateDB.examsOverview} sortedAttempts={stateDB.examData} />
               <LineGraphScores exams={stateDB.monthlyAttempts} timeframe={stateTimefilter} examDataRaw={stateDB.examDataRaw} />
-              <BarGraph_failpercent exams={stateDB.examsOverview}  />
+              <BarGraph_failpercent exams={stateDB.examsOverview} />
             </div>
 
 
@@ -106,7 +104,7 @@ function App() {
         <footer className="sticky-footer bg-white">
           <div className="container my-auto">
             <div className="copyright text-center my-auto">
-              <span>Copyright © Your Website 2020</span>
+              <span>For help and a usage guide on this tool see <a href="https://wiki.nov.com">https://wiki.nov.com</a></span>
             </div>
           </div>
         </footer>

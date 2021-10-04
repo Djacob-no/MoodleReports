@@ -27,6 +27,31 @@
 .App-link {
   color: #61dafb;
 }
+.pageTop{
+  position: fixed;
+  width: 100%;
+  background-color: #090814;
+  height: 50px;
+  text-align: left;
+  padding: 10px;
+  z-index: 1;
+}
+.pageTop .left{
+ display: inline-block;
+}
+.pageTop .right{
+  display: inline-block;
+    right: 0;
+    position: fixed;
+    color: #fff;
+    font-weight: 700;
+    margin-right: 20px;
+    font-size: 1.3em;
+}
+.pageTop form{
+  display: inline;
+  
+}
 
 .modal-container{
     background-color: #121224;
@@ -64,13 +89,13 @@
 
 .fl-table thead th {
   color: #ffffff;
-  background: rgb(55, 56, 56);
+  background: #08081a;
 }
 
 
 .fl-table thead th:nth-child(odd) {
   color: #ffffff;
-  background: #0f243a;
+  background: ##08081a;
 }
 
 .fl-table tr:nth-child(even) {
