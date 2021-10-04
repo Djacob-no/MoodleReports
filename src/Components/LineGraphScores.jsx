@@ -32,7 +32,7 @@ const LineGraphScores = ({ exams, timeframe, examDataRaw }) => {
       }
     } else return null;
 
-    console.log(daysArray);
+    //console.log(daysArray);
   
 
 

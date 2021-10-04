@@ -43,7 +43,7 @@ class SortableTable extends React.Component {
 	render() {
 		const { data } = this.props;
 		const { currentSort } = this.state;
-		console.log(currentSort);
+		//console.log(currentSort);
 
 		return (data.length > 0 && (
 			<div className="t">

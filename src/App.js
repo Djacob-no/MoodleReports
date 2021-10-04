@@ -23,12 +23,16 @@ function App() {
     name: "",
     modalInputName: ""
   });
-  const [passingScore, setPassingScore] = useState(80);
+  const [showOptions, setShowOptions] = useState("hide");
 
+  //define passing score 
+  let pscore = 80;
+
+  //get data async from API 
   const databaseRaw = useAttempts();
   const gradesRaw = useGrades();
 
-
+  //opens and closes raw table data views 
   const modalOpen = (input) => {
     setModalState({ modal: true, child: input.target.id });
   }
@@ -36,17 +40,11 @@ function App() {
     setModalState({ modalInputName: "", modal: false });
   }
 
-
+  //Main Search and data filter. Updates stateDB with all data
   const SearchUpdate = (search) => {
     setTimefilter({ "from": search.from, "to": search.to });
-    setDBState(useDataManager(search.text, search.from, search.to, databaseRaw, gradesRaw.data, passingScore))
+    setDBState(useDataManager(search.text, search.from, search.to, databaseRaw, gradesRaw.data, pscore))
   };
-  const handlePassScore = (e) => {
-    e.preventDefault();
-    setPassingScore(e.target.value);
-    console.log(e.target)
-  }
-  console.log(passingScore)
 
 
   return (
@@ -56,26 +54,26 @@ function App() {
           <div className="pageTop">
             <div className="left"><a style={{ color: "#fff", fontWeight: 800 }} href="wiki.nov.com">ESO Reports</a></div>
             <div className="right">
-              <a>
+              <button onClick={(e)=> setShowOptions((showOptions==="hide") ? "show":"hide")}>
                 <i className={`fas fa-cog`}></i>
-              </a>
-              <form onSubmit={(e)=> e.preventDefault()}>
-                Set Passing Score
-                  <input type="number" id="passingScore" onChange={handlePassScore} >
-                  </input>
-               
+              </button>
+              <form className={showOptions} onSubmit={(e) => {
+                e.preventDefault();
+                SearchUpdate({
+                  "text": stateDB.search, "from": stateDB.from, "to": stateDB.to
+                })
+              }}>
+               <p className="settingTxt"> Set Passing Score</p>
+                <input name="passScore" type="number" id="passingScore" onChange={(e) => pscore = e.target.value} >
+                </input>
+
               </form>
 
             </div>
           </div>
           <div style={{ marginTop: "50px" }} className="container-fluid" >
 
-
-
             <Modal title={modalState.child} show={modalState.modal} handleClose={e => modalClose(e)} data={modalState.child === "Final Grades" ? stateDB.finalGrades : stateDB.examDataRaw} />
-
-
-
             <div className="row">
               <div className="col-md-12">
                 <SearchBar onChange={SearchUpdate} />
@@ -96,8 +94,6 @@ function App() {
               <LineGraphScores exams={stateDB.monthlyAttempts} timeframe={stateTimefilter} examDataRaw={stateDB.examDataRaw} />
               <BarGraph_failpercent exams={stateDB.examsOverview} />
             </div>
-
-
 
           </div>
         </div>

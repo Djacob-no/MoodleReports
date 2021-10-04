@@ -16,7 +16,7 @@ const LineGraph = ({ exams, timeframe, examDataRaw }) => {
     let daysArrayFailed = [];//stores an array of failed attempts for each day between to and from in timeframe
     let daysArrayLabels =[];//stores days of the month cooresponding to the daysArray above [20,21,21,23....]
 
-    console.log("dateto "+days_difference);
+    //console.log("dateto "+days_difference);
     //loop through everyday between dateFrom and dateTo 
     if(days_difference<40){
       for (let i = days_difference; i > 0; i--) {

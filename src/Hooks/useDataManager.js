@@ -129,7 +129,7 @@ const useDataManager = (searchInput, from, to, rawData, gradeData, passingScore)
         }
 
         //console.log(fdata);
-        return { "monthlyAttempts": montlyAttempts, "passingScore": passingScore, "examsOverview": examsObject, "examDataRaw": fdata, "examData": sorted, "totalAttempts": totalAttempts, "passCountFunction": passCount, "finalGrades": fGradeData }
+        return { "monthlyAttempts": montlyAttempts, "search": searchInput,"to":to, "from":from, "examsOverview": examsObject, "examDataRaw": fdata, "examData": sorted, "totalAttempts": totalAttempts, "passCountFunction": passCount, "finalGrades": fGradeData }
     } else return null;
 }
 

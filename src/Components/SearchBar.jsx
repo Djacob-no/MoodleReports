@@ -16,7 +16,7 @@ const FieldEditor = ({ onChange }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     onChange({ "text": search, "from": from, "to": to });
-    console.log({ "text": search, "from": from, "to": to })
+   // console.log({ "text": search, "from": from, "to": to })
   }
 
 

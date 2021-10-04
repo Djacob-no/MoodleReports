@@ -27,31 +27,52 @@
 .App-link {
   color: #61dafb;
 }
+
+button{
+  border: none;
+    background-color: #0000;
+    color: #fff;
+}
+button:focus-visible{
+  border: none;
+  outline: none;
+}
+.hide{
+  display: none !important;
+}
+
 .pageTop{
   position: fixed;
   width: 100%;
   background-color: #090814;
-  height: 50px;
+  height: 60px;
   text-align: left;
-  padding: 10px;
+  padding: 15px;
   z-index: 1;
 }
 .pageTop .left{
  display: inline-block;
+ font-size: 1.6em;
 }
 .pageTop .right{
   display: inline-block;
     right: 0;
     position: fixed;
     color: #fff;
-    font-weight: 700;
     margin-right: 20px;
-    font-size: 1.3em;
+    font-size: 1em;
 }
 .pageTop form{
   display: inline;
-  
 }
+.pageTop i{
+  font-size: 1.4em;
+}
+.pageTop .settingTxt{
+  display: inline-block;
+  margin: 10px;
+}
+
 
 .modal-container{
     background-color: #121224;
