@@ -15,15 +15,14 @@ const LineGraphScores = ({ exams, timeframe, examDataRaw }) => {
     let daysArrayLabels = [];//stores days of the month cooresponding to the daysArray above [20,21,21,23....]
 
     //loop through everyday between dateFrom and dateTo 
-    if (days_difference < 30) {
-      for (let i = days_difference; i > 0; i--) {
+    if (days_difference < 365) {
+      for (let i = days_difference; i >= 0; i--) {
         let thisLoopDay = new Date(dateTo.getFullYear(), dateTo.getMonth(), dateTo.getDate() - i);
-        let thisDaysAttempts = [];
         //loop through exam attemps and look for date matching thisLoopday count up attempt and passed and failed counter
         for (let j = 0; j < examDataRaw.length; j++) {
           if (examDataRaw[j].dateFormat.toISOString().split('T')[0] === thisLoopDay.toISOString().split('T')[0]) {
             daysArray.push(
-              { "x": (thisLoopDay.getDate()-1), "y": examDataRaw[j].scorePercent }
+              { "x": -i, "y": examDataRaw[j].scorePercent }
             );
           }
         }

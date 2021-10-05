@@ -37,6 +37,10 @@ button:focus-visible{
   border: none;
   outline: none;
 }
+button:focus{
+  border: none;
+  outline: none;
+}
 .hide{
   display: none !important;
 }
@@ -44,7 +48,7 @@ button:focus-visible{
 .pageTop{
   position: fixed;
   width: 100%;
-  background-color: #090814;
+  background-color: #121224;
   height: 60px;
   text-align: left;
   padding: 15px;

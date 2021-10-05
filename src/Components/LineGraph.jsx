@@ -18,8 +18,8 @@ const LineGraph = ({ exams, timeframe, examDataRaw }) => {
 
     //console.log("dateto "+days_difference);
     //loop through everyday between dateFrom and dateTo 
-    if(days_difference<40){
-      for (let i = days_difference; i > 0; i--) {
+    if(days_difference<80){
+      for (let i = days_difference; i >= 0; i--) {
         let thisLoopDay = new Date(dateTo.getFullYear(),dateTo.getMonth(),dateTo.getDate()-i) 
         let thisDaysAttempts = 0;
         let thisDaysPassed = 0;
@@ -139,7 +139,7 @@ const LineGraph = ({ exams, timeframe, examDataRaw }) => {
 
               </div>
             </div>
-            <Line data={(days_difference<40) ? data_days : data_months} options={options} />
+            <Line data={(days_difference<80) ? data_days : data_months} options={options} />
 
 
 
