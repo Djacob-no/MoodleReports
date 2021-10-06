@@ -3,7 +3,7 @@ import './App.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import SmallCard from './Components/SmallCard';
 import BarGraph from './Components/BarGraph';
-import BarGraph_failpercent from './Components/BarGraph_failpercent';
+import Failpercent from './Components/Failpercent';
 import { useAttempts, useGrades } from './Hooks/databaseHook';
 import useDataManager from './Hooks/useDataManager.js';
 import React, { useState } from 'react';
@@ -40,7 +40,7 @@ function App() {
     setModalState({ modalInputName: "", modal: false });
   }
 
-  //Main Search and data filter. Updates stateDB with all data
+  //Master Search and data filter. Updates stateDB with all data
   const SearchUpdate = (search) => {
     setTimefilter({ "from": search.from, "to": search.to });
     setDBState(useDataManager(search.text, search.from, search.to, databaseRaw, gradesRaw.data, pscore))
@@ -92,7 +92,7 @@ function App() {
               <LineGraph exams={stateDB.monthlyAttempts} timeframe={stateTimefilter} examDataRaw={stateDB.examDataRaw} />
               <BarGraph exams={stateDB.examsOverview} sortedAttempts={stateDB.examData} />
               <LineGraphScores exams={stateDB.monthlyAttempts} timeframe={stateTimefilter} examDataRaw={stateDB.examDataRaw} />
-              <BarGraph_failpercent exams={stateDB.examsOverview} />
+              <Failpercent exams={stateDB.examsOverview} />
             </div>
 
           </div>

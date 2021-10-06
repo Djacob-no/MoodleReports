@@ -120,7 +120,7 @@ button:focus{
 
 .fl-table thead th:nth-child(odd) {
   color: #ffffff;
-  background: ##08081a;
+  background: #08081a;
 }
 
 .fl-table tr:nth-child(even) {
