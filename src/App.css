@@ -1,0 +1,143 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+button{
+  border: none;
+    background-color: #0000;
+    color: #fff;
+}
+button:focus-visible{
+  border: none;
+  outline: none;
+}
+button:focus{
+  border: none;
+  outline: none;
+}
+.hide{
+  display: none !important;
+}
+
+.pageTop{
+  position: fixed;
+  width: 100%;
+  background-color: #121224;
+  height: 60px;
+  text-align: left;
+  padding: 15px;
+  z-index: 1;
+}
+.pageTop .left{
+ display: inline-block;
+ font-size: 1.6em;
+}
+.pageTop .right{
+  display: inline-block;
+    right: 0;
+    position: fixed;
+    color: #fff;
+    margin-right: 20px;
+    font-size: 1em;
+}
+.pageTop form{
+  display: inline;
+}
+.pageTop i{
+  font-size: 1.4em;
+}
+.pageTop .settingTxt{
+  display: inline-block;
+  margin: 10px;
+}
+
+
+.modal-container{
+    background-color: #121224;
+    padding: 20px;
+}
+
+/* Table Styles */
+
+.table-wrapper{
+  margin: 10px 70px 70px;
+  box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.fl-table {
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  background-color:#121224;
+}
+
+.fl-table td, .fl-table th {
+  text-align: center;
+  padding: 8px;
+}
+
+.fl-table td {
+  border-right: 1px solid #2a2838;
+  font-size: 12px;
+}
+
+.fl-table thead th {
+  color: #ffffff;
+  background: #08081a;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+  color: #ffffff;
+  background: #08081a;
+}
+
+.fl-table tr:nth-child(even) {
+  background:#1a1a31;
+}
+
+.card-body a {
+  text-decoration: none;
+  
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
