@@ -5,7 +5,7 @@ import App from './App';
 window.$chartColors = {
   "lines": "rgb(44, 46, 56)",
   "text": "rgb(44, 46, 56)",
-  "green": "#1cc88a",
+  "green": "#16c383ff",
   "hoverGreen": "rgb(44, 111, 56)",
   "red": "#e74a3b",
   "hoverRed": "rgb(222, 111, 56)",

@@ -26,7 +26,7 @@ function App() {
   const [showOptions, setShowOptions] = useState("hide");
 
   //define passing score 
-  let pscore = 80;
+  let pscore = 79;
 
   //get data async from API 
   const databaseRaw = useAttempts();
