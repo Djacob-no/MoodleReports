@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+# MoodleReports (project documentation)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains a React application (bootstrapped with Create React App) named "Moodle Reports". The app fetches Moodle attempt and grade data from remote APIs and provides dashboards and tables to inspect attempts, pass/fail rates, and scores over time.
 
-## Available Scripts
+This file is a project-focused README intended to help contributors and maintainers quickly understand the code structure, data flow, and how to run and extend the app.
 
-In the project directory, you can run:
+## Quick summary
+- Tech: React 17, Chart.js, react-chartjs-2
+- Bundler/Tooling: Create React App (`react-scripts`)
+- Purpose: Visualize Moodle attempt/grade data (time series, pass/fail breakdown, sortable attempt table)
+- Data sources: Two remote API endpoints (attempts and grades) authenticated with an API key stored in `src/Hooks/apiKey` (not included in repo)
 
-### `npm start`
+## Project layout (important files)
+- `public/` — static assets and the base `index.html` which mounts the React app
+- `src/index.js` — app entry, mounts `<App />` and sets some global chart color variables
+- `src/App.js` — top-level component: wires hooks, manages modal and search state, renders small summary cards and charts
+- `src/Hooks/` — data hooks and static fixtures
+  - `databaseHook.js` — contains two hooks: `useAttempts()` and `useGrades()` which fetch from remote APIs
+  - `useDataManager.js` — transforms raw data into app-ready structures (filters, monthly aggregation, exam summaries, pass/fail counts)
+  - `databaseMoodle.json`, `grades.json` — sample/local fixtures used for development (small datasets)
+- `src/Components/` — UI components: charts, cards, search bar, modal, sortable table, etc.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Data flow and behavior
+1. `App` calls `useAttempts()` and `useGrades()` on mount to fetch remote JSON data.
+2. The `SearchBar` component emits search text plus `from`/`to` date range.
+3. `useDataManager(search, from, to, attemptsRaw, gradesRaw, passingScore)` filters raw attempts and grades by search and time range, computes per-exam pass/fail counts, score percentages, a monthly attempts array, and final grades list.
+4. Transformed data is stored in `App`'s `stateDB` and passed down to charts (`LineGraph`, `BarGraph`, `LineGraphScores`, `Failpercent`), `SmallCard` summaries, and `Modal`/`SortableTable` for raw-tables.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Key runtime/config notes
+- API endpoints are hardcoded in `src/Hooks/databaseHook.js` and require a valid `src/Hooks/apiKey.js` exporting the API key. The repository does not include that file for security.
+- Default passing score is set inside `App.js` and can be changed via the settings form in the UI (note: currently that input updates a local variable, not component state — see next steps).
 
-### `npm test`
+## Running locally (developer workflow)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Quick Start - No API Key Required! 🎉
 
-### `npm run build`
+The repository includes synthetic test data files with 50 realistic exam attempts and 35 grades. You can run the app immediately:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd MoodleReports/MoodleReports
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Use local test data (no API key needed)
+export REACT_APP_USE_LOCAL_DATA=true
+npm install
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Open http://localhost:3000 and you'll see charts and data from the included synthetic JSON fixtures.
 
-### `npm run eject`
+### Local Development with Test Data
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+See `LOCAL_DEV.md` for detailed instructions on using the included synthetic test data files (`testAttempts.json` and `testGrades.json`) for offline development. The app now has three modes:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Install dependencies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+cd MoodleReports
+cd MoodleReports
+npm install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. Provide an API key file (create `src/Hooks/apiKey.js`) with the following content:
 
-## Learn More
+```js
+// src/Hooks/apiKey.js
+const apiKey = 'YOUR_KEY_HERE';
+export default apiKey;
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Or set an environment variable:
+```bash
+export REACT_APP_MOODLE_API_KEY='YOUR_KEY_HERE'
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Start the dev server:
 
-### Code Splitting
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Open http://localhost:3000 in a browser.
 
-### Analyzing the Bundle Size
+### Local Development with Test Data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+See `LOCAL_DEV.md` for detailed instructions on using the included test data files (`databaseMoodle.json` and `grades.json`) for offline development. The app now has three modes:
 
-### Making a Progressive Web App
+1. **Local-only mode**: `REACT_APP_USE_LOCAL_DATA=true` (recommended for development)
+2. **API mode**: Provide API key via env var or `apiKey.js` file  
+3. **Hybrid mode**: Try API first, fallback to local data if it fails
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Production Setup (with API)
 
-### Advanced Configuration
+## Known issues & TODOs (quick)
+- The passing score input in the settings form mutates a local variable (`pscore`) and does not trigger a state update; consider lifting it to `useState` so the UI has an effective control.
+- `useDataManager` expects valid `from` and `to` dates; there is limited validation around empty or invalid ranges.
+- `src/Hooks/apiKey.js` is required but not included. Consider using environment variables (REACT_APP_*) for safer configuration.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Next steps for documentation
+- Add per-component docs (`COMPONENTS.md`) describing props, expected shapes, and usage examples.
+- Add a CONTRIBUTING.md with how to run tests, linting, and add features.
+- Add screenshots or animated GIFs for the UI and charts.
 
-### Deployment
+## License
+See repository root for license information (if any).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+End of project README
